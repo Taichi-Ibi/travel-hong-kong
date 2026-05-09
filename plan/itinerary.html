@@ -180,6 +180,7 @@ details.day[open] .dchev { transform: rotate(180deg); }
 .knum { background: var(--card); border-radius: 8px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
 .knum-label { font-size: 0.78rem; color: var(--muted); }
 .knum-value { font-weight: 800; color: var(--hk-red); font-size: 0.92rem; }
+.knum.gold .knum-value { color: var(--hk-gold); }
 
 /* LUGGAGE */
 .lug { background: var(--card); border-radius: 12px; padding: 16px 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
@@ -224,6 +225,21 @@ details.day[open] .dchev { transform: rotate(180deg); }
 .footer { text-align: center; padding: 32px 0 24px; color: var(--muted); font-size: 0.78rem; border-top: 1px solid #E0DDD8; margin-top: 12px; }
 .footer-sub { margin-top: 4px; }
 
+/* MAP LINKS */
+.mlink { color: var(--hk-red); text-decoration: none; border-bottom: 1px dotted var(--hk-red); }
+.mlink:hover { border-bottom-style: solid; opacity: 0.8; }
+.mlink::after { content: " 📍"; font-size: 0.72em; font-style: normal; }
+
+/* CURRENCY BOX */
+.currency-bar {
+  background: var(--dark); color: white; border-radius: 8px;
+  padding: 10px 16px; margin-bottom: 20px;
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  font-size: 0.84rem;
+}
+.currency-bar strong { color: var(--hk-gold); font-size: 1rem; }
+.currency-bar span { opacity: 0.7; font-size: 0.78rem; }
+
 /* PRINT */
 @media print {
   body { background: white; }
@@ -246,6 +262,7 @@ details.day[open] .dchev { transform: rotate(180deg); }
     <div class="cover-chip"><strong>往路</strong>UO629 5/12 02:20 HND→HKG</div>
     <div class="cover-chip"><strong>復路</strong>UO622 5/16 17:35 HKG→HND</div>
     <div class="cover-chip"><strong>マカオ</strong>5/13 TurboJET日帰り</div>
+    <div class="cover-chip"><strong>レート目安</strong>1 HK$ ≈ 19〜20円</div>
   </div>
 </div>
 
@@ -317,7 +334,7 @@ details.day[open] .dchev { transform: rotate(180deg); }
   <div class="card">
     <div class="card-header-row">
       <div>
-        <h3 class="hotel-name">TUVE Hotel</h3>
+        <h3 class="hotel-name"><a href="https://maps.google.com/?q=TUVE+Hotel+Hong+Kong" target="_blank" rel="noopener" class="mlink" style="color:var(--dark);">TUVE Hotel</a></h3>
         <p class="hotel-subtitle">銅鑼灣清風街16号 ／ MTR港島線・天后駅 A1出口 徒歩約3分</p>
       </div>
       <div class="card-info-right">
@@ -398,29 +415,29 @@ details.day[open] .dchev { transform: rotate(180deg); }
           <tr><td>06:00</td><td>HKG 着陸</td><td>UO629</td></tr>
           <tr><td>06:15–07:15</td><td>入境審査・受託受取・税関</td><td>早朝便集中で30分混雑見込</td></tr>
           <tr><td>07:15</td><td><strong>オクトパス購入／チャージ HK$200/人</strong></td><td>MTRカウンター or 7-Eleven</td></tr>
-          <tr><td>07:30</td><td><strong>空港朝食: 翠華餐廳 Tsui Wah</strong>（到着ロビー）</td><td>ミルクティー＋サテビーフ麺で香港初食</td></tr>
-          <tr><td>08:15</td><td><strong>A21バス乗車</strong>（HKG → 旺角）</td><td>HK$33/人・65〜80分</td></tr>
-          <tr><td>09:30</td><td><strong>旺角着 → スーツケース預け</strong>（LuggageHero/Bounce）</td><td>事前予約必須・HK$60〜80/個</td></tr>
+          <tr><td>07:30</td><td><strong><a href="https://maps.google.com/?q=Tsui+Wah+Restaurant+Hong+Kong+Airport" target="_blank" rel="noopener" class="mlink">翠華餐廳 Tsui Wah</a></strong>（到着ロビー）</td><td>ミルクティー＋サテビーフ麺で香港初食</td></tr>
+          <tr><td>08:15</td><td><strong>A21バス乗車</strong>（HKG → 旺角）</td><td>HK$33/人（≈630円）・65〜80分</td></tr>
+          <tr><td>09:30</td><td><strong><a href="https://maps.google.com/?q=Mong+Kok+Station+Hong+Kong" target="_blank" rel="noopener" class="mlink">旺角</a>着 → スーツケース預け</strong>（LuggageHero/Bounce）</td><td>事前予約必須・HK$60〜80/個（≈1,200〜1,600円）</td></tr>
           <tr><td>09:45</td><td>MTR 旺角 →（觀塘線）→ 黄大仙</td><td>約10分</td></tr>
-          <tr><td>10:00–10:50</td><td><strong>黄大仙寺</strong>（参拝・おみくじ）</td><td>屋根付き参拝スペース多数・小雨可</td></tr>
+          <tr><td>10:00–10:50</td><td><strong><a href="https://maps.google.com/?q=Wong+Tai+Sin+Temple+Hong+Kong" target="_blank" rel="noopener" class="mlink">黄大仙寺</a></strong>（参拝・おみくじ）</td><td>屋根付き参拝スペース多数・小雨可</td></tr>
           <tr><td>10:55</td><td>MTR 黄大仙 → 彩虹（1駅3分）</td><td></td></tr>
-          <tr><td>11:00–11:35</td><td><strong>彩虹邨 Choi Hung Estate</strong>（バスケコート上の階段から撮影）</td><td>2028年再開発予定・屋外好天必須</td></tr>
+          <tr><td>11:00–11:35</td><td><strong><a href="https://maps.google.com/?q=Choi+Hung+Estate+Hong+Kong" target="_blank" rel="noopener" class="mlink">彩虹邨 Choi Hung Estate</a></strong>（バスケコート上の階段から撮影）</td><td>2028年再開発予定・屋外好天必須</td></tr>
           <tr><td>11:40</td><td>MTR 彩虹 → 旺角 →（荃灣線）→ 深水埗</td><td>約20分</td></tr>
-          <tr><td>12:00–13:00</td><td><strong>鴨寮街散策＋深水埗で昼食</strong></td><td>添好運深水埗本店（点心1つ星）or 劉森記麵家</td></tr>
+          <tr><td>12:00–13:00</td><td><strong><a href="https://maps.google.com/?q=Apliu+Street+Sham+Shui+Po+Hong+Kong" target="_blank" rel="noopener" class="mlink">鴨寮街</a>散策＋深水埗で昼食</strong></td><td><a href="https://maps.google.com/?q=Tim+Ho+Wan+Sham+Shui+Po+Hong+Kong" target="_blank" rel="noopener" class="mlink">添好運深水埗本店</a>（点心1つ星）or <a href="https://maps.google.com/?q=Lau+Sum+Kee+Noodle+Hong+Kong" target="_blank" rel="noopener" class="mlink">劉森記麵家</a></td></tr>
           <tr><td>13:15</td><td>MTR 深水埗 → 旺角（1駅）→ スーツケース引取</td><td></td></tr>
           <tr><td>13:30</td><td>MTR 旺角 → 金鐘 → 天后</td><td>約25分</td></tr>
-          <tr><td>14:00</td><td><strong>TUVE Hotel 着・早めCI交渉</strong>（公式CI 15:00）</td><td>14:00入室を依頼</td></tr>
+          <tr><td>14:00</td><td><strong><a href="https://maps.google.com/?q=TUVE+Hotel+Hong+Kong" target="_blank" rel="noopener" class="mlink">TUVE Hotel</a> 着・早めCI交渉</strong>（公式CI 15:00）</td><td>14:00入室を依頼</td></tr>
           <tr><td>14:00–16:30</td><td><strong>部屋で仮眠（目標1.5〜2時間）</strong></td><td>今日最大の体力温存ポイント</td></tr>
           <tr><td>16:30</td><td>MTR 天后 → 太古（3駅・10分）</td><td></td></tr>
-          <tr><td>16:40–17:20</td><td><strong>怪獸大廈 Monster Building</strong> ＋ <strong>% Arabica Quarry Bay</strong></td><td>コーヒー絶品店① ／ テイクアウト</td></tr>
+          <tr><td>16:40–17:20</td><td><strong><a href="https://maps.google.com/?q=Monster+Building+Quarry+Bay+Hong+Kong" target="_blank" rel="noopener" class="mlink">怪獸大廈 Monster Building</a></strong> ＋ <strong><a href="https://maps.google.com/?q=%25+Arabica+Quarry+Bay+Hong+Kong" target="_blank" rel="noopener" class="mlink">% Arabica Quarry Bay</a></strong></td><td>コーヒー絶品店① ／ テイクアウト</td></tr>
           <tr><td>17:20</td><td>MTR 太古 → 中環（約15分）</td><td></td></tr>
-          <tr><td>17:40</td><td><strong>Peak Tram 中環山下駅</strong>（要事前予約）</td><td></td></tr>
-          <tr><td>18:00–19:30</td><td><strong>ビクトリア・ピーク（Sky Terrace 428）</strong></td><td>日没18:50・夜景開始19:20頃</td></tr>
+          <tr><td>17:40</td><td><strong><a href="https://maps.google.com/?q=Peak+Tram+Lower+Terminus+Central+Hong+Kong" target="_blank" rel="noopener" class="mlink">Peak Tram 中環山下駅</a></strong>（要事前予約）</td><td></td></tr>
+          <tr><td>18:00–19:30</td><td><strong><a href="https://maps.google.com/?q=Sky+Terrace+428+Victoria+Peak+Hong+Kong" target="_blank" rel="noopener" class="mlink">ビクトリア・ピーク（Sky Terrace 428）</a></strong></td><td>日没18:50・夜景開始19:20頃</td></tr>
           <tr><td>19:45</td><td>Peak Tram で中環下山</td><td></td></tr>
-          <tr><td>20:00</td><td><strong>ディナー: 一樂燒鵝</strong>（中環士丹利街）</td><td>ミシュラン1つ星・カリッと皮のローストグース</td></tr>
-          <tr><td>21:15</td><td>中環6号埠頭へ徒歩</td><td></td></tr>
-          <tr><td>21:30</td><td><strong>オープントップバス H2K ナイトコース</strong>（中環6号埠頭発・約50分）</td><td>21:30 or 22:00回・HK$50前後</td></tr>
-          <tr><td>22:30</td><td>中環着 → タクシーでTUVE（HK$80前後）</td><td></td></tr>
+          <tr><td>20:00</td><td><strong><a href="https://maps.google.com/?q=Yat+Lok+Roast+Goose+Restaurant+Central+Hong+Kong" target="_blank" rel="noopener" class="mlink">一樂燒鵝</a></strong>（中環士丹利街）</td><td>ミシュラン1つ星・カリッと皮のローストグース</td></tr>
+          <tr><td>21:15</td><td><a href="https://maps.google.com/?q=Central+Pier+6+Hong+Kong" target="_blank" rel="noopener" class="mlink">中環6号埠頭</a>へ徒歩</td><td></td></tr>
+          <tr><td>21:30</td><td><strong>オープントップバス H2K ナイトコース</strong>（中環6号埠頭発・約50分）</td><td>21:30 or 22:00回・HK$50前後（≈950〜1,000円）</td></tr>
+          <tr><td>22:30</td><td>中環着 → タクシーでTUVE（HK$80前後・≈1,600円）</td><td></td></tr>
           <tr><td>23:30</td><td>就寝</td><td>5/13は06:30起床</td></tr>
         </tbody>
       </table>
@@ -469,17 +486,17 @@ details.day[open] .dchev { transform: rotate(180deg); }
         <tbody>
           <tr><td>07:00</td><td>ホテル朝食（軽め）or 持参パン</td><td>早出のため簡素に</td></tr>
           <tr><td>07:30</td><td>MTR 天后 → 上環（港島線・15分）</td><td></td></tr>
-          <tr><td>08:00</td><td><strong>TurboJET 上環フェリーターミナル発</strong></td><td>約1時間・往復HK$320前後</td></tr>
+          <tr><td>08:00</td><td><strong><a href="https://maps.google.com/?q=Sheung+Wan+Ferry+Terminal+Macau+Hong+Kong" target="_blank" rel="noopener" class="mlink">TurboJET 上環フェリーターミナル</a>発</strong></td><td>約1時間・往復HK$320前後（≈6,400円）</td></tr>
           <tr><td>09:00</td><td>マカオ外港着 → バス/タクシーで半島中心部へ</td><td></td></tr>
-          <tr><td>09:30</td><td><strong>セナド広場〜聖ポール天主堂跡</strong></td><td>屋根付きアーケード多く小雨可</td></tr>
-          <tr><td>11:00</td><td><strong>マーガレット・カフェ・エ・ナタ</strong></td><td>元祖マカオ式エッグタルト</td></tr>
-          <tr><td>12:30</td><td><strong>昼食: A Lorcha</strong>（媽閣廟近く・要予約）</td><td>ポルトガル料理・シーフードライス・アサリ炒め</td></tr>
-          <tr><td>14:30</td><td><strong>タイパ・ヴィレッジ（官也街）</strong></td><td>パステルカラー教会・お土産通り</td></tr>
-          <tr><td>16:00</td><td><strong>ヴェネチアン・マカオ建築見学</strong></td><td>完全屋内・運河とゴンドラ・雨宿りに最適</td></tr>
+          <tr><td>09:30</td><td><strong><a href="https://maps.google.com/?q=Senado+Square+Macau" target="_blank" rel="noopener" class="mlink">セナド広場</a>〜<a href="https://maps.google.com/?q=Ruins+of+St+Paul%27s+Macau" target="_blank" rel="noopener" class="mlink">聖ポール天主堂跡</a></strong></td><td>屋根付きアーケード多く小雨可</td></tr>
+          <tr><td>11:00</td><td><strong><a href="https://maps.google.com/?q=Margaret%27s+Cafe+e+Nata+Macau" target="_blank" rel="noopener" class="mlink">マーガレット・カフェ・エ・ナタ</a></strong></td><td>元祖マカオ式エッグタルト</td></tr>
+          <tr><td>12:30</td><td><strong>昼食: <a href="https://maps.google.com/?q=Restaurante+Litoral+Macau" target="_blank" rel="noopener" class="mlink">Restaurante Litoral</a></strong>（マカオ半島・要予約推奨）</td><td>マカニーズ料理の老舗・ポルトガル料理 ／ 代替: Antonio（タイパ）</td></tr>
+          <tr><td>14:30</td><td><strong><a href="https://maps.google.com/?q=Taipa+Village+Macau" target="_blank" rel="noopener" class="mlink">タイパ・ヴィレッジ（官也街）</a></strong></td><td>パステルカラー教会・お土産通り</td></tr>
+          <tr><td>16:00</td><td><strong><a href="https://maps.google.com/?q=The+Venetian+Macao" target="_blank" rel="noopener" class="mlink">ヴェネチアン・マカオ</a>建築見学</strong></td><td>完全屋内・運河とゴンドラ・雨宿りに最適</td></tr>
           <tr><td>17:30</td><td>フェリーターミナルへ移動</td><td>タイパフェリーターミナル使用も可</td></tr>
           <tr><td>18:30</td><td><strong>マカオ → 香港 TurboJET</strong></td><td></td></tr>
           <tr><td>19:30</td><td>上環着 → MTR で天后へ</td><td></td></tr>
-          <tr><td>20:00</td><td><strong>夕食: 棋哥燒鵝</strong>（天后徒歩圏・ローカル燒鵝）</td><td>軽め・ホテル近場で疲労を抑える</td></tr>
+          <tr><td>20:00</td><td><strong>夕食: <a href="https://maps.google.com/?q=Ki+Go+Roast+Goose+Tin+Hau+Hong+Kong" target="_blank" rel="noopener" class="mlink">棋哥燒鵝</a></strong>（天后徒歩圏・ローカル燒鵝）</td><td>軽め・ホテル近場で疲労を抑える</td></tr>
           <tr><td>21:30</td><td>ホテル戻り</td><td></td></tr>
         </tbody>
       </table>
@@ -514,17 +531,17 @@ details.day[open] .dchev { transform: rotate(180deg); }
       <table class="tbl">
         <thead><tr><th>時刻</th><th>内容</th><th>備考</th></tr></thead>
         <tbody>
-          <tr><td>08:30</td><td><strong>朝食: 金鳳茶餐廳</strong>（銅鑼灣・ホテル徒歩10分）</td><td>名物アイスミルクティー・菠蘿油</td></tr>
+          <tr><td>08:30</td><td><strong>朝食: <a href="https://maps.google.com/?q=Golden+Phoenix+Restaurant+Causeway+Bay+Hong+Kong" target="_blank" rel="noopener" class="mlink">金鳳茶餐廳</a></strong>（銅鑼灣・ホテル徒歩10分）</td><td>名物アイスミルクティー・菠蘿油</td></tr>
           <tr><td>10:00</td><td>MTR 天后 → 中環 → 九龍站 → 西九文化区へ</td><td></td></tr>
-          <tr><td>10:30–13:00</td><td><strong>M+ ミュージアム（西九文化区）</strong></td><td>全屋内・香港随一の現代視覚文化博物館</td></tr>
-          <tr><td>13:30</td><td><strong>昼食: 沾仔記</strong>（中環 Wellington St）</td><td>海老ワンタン麺の老舗・向かいに麥奀あり食べ比べ可</td></tr>
+          <tr><td>10:30–13:00</td><td><strong><a href="https://maps.google.com/?q=M%2B+Museum+West+Kowloon+Hong+Kong" target="_blank" rel="noopener" class="mlink">M+ ミュージアム（西九文化区）</a></strong></td><td>全屋内・香港随一の現代視覚文化博物館</td></tr>
+          <tr><td>13:30</td><td><strong>昼食: <a href="https://maps.google.com/?q=Tsim+Chai+Kee+Wellington+Street+Hong+Kong" target="_blank" rel="noopener" class="mlink">沾仔記</a></strong>（中環 Wellington St）</td><td>海老ワンタン麺の老舗・向かいに<a href="https://maps.google.com/?q=Mak%27s+Noodle+Central+Hong+Kong" target="_blank" rel="noopener" class="mlink">麥奀</a>あり食べ比べ可</td></tr>
           <tr><td>14:30</td><td>MTR 中環 → 銅鑼灣</td><td></td></tr>
-          <tr><td>15:00–16:30</td><td><strong>Leica Store Causeway Bay + Cafe Leitz</strong>（白沙道12号）</td><td>コーヒー絶品店②・エスプレッソライムトニック</td></tr>
+          <tr><td>15:00–16:30</td><td><strong><a href="https://maps.google.com/?q=Leica+Store+Causeway+Bay+Hong+Kong" target="_blank" rel="noopener" class="mlink">Leica Store Causeway Bay + Cafe Leitz</a></strong>（白沙道12号）</td><td>コーヒー絶品店②・エスプレッソライムトニック</td></tr>
           <tr><td>16:30–17:30</td><td><strong>〔オプション〕萬興製衣で採寸・発注</strong></td><td>仕上がり日数事前確認済の場合のみ実行</td></tr>
-          <tr><td>17:30–19:00</td><td><strong>SOGO銅鑼灣 / Times Square</strong></td><td>SOGO感謝祭(5/1〜17)期間中・完全屋内</td></tr>
+          <tr><td>17:30–19:00</td><td><strong><a href="https://maps.google.com/?q=SOGO+Causeway+Bay+Hong+Kong" target="_blank" rel="noopener" class="mlink">SOGO銅鑼灣</a> / <a href="https://maps.google.com/?q=Times+Square+Causeway+Bay+Hong+Kong" target="_blank" rel="noopener" class="mlink">Times Square</a></strong></td><td>SOGO感謝祭(5/1〜17)期間中・完全屋内</td></tr>
           <tr><td>19:30</td><td>MTR 銅鑼灣 → 中環</td><td></td></tr>
-          <tr><td>20:00</td><td><strong>ディナー: 蓮香樓 Lin Heung Tea House</strong>（中環威靈頓街160号）</td><td>1930年代創業ワゴン式飲茶・予約不可・並び前提</td></tr>
-          <tr><td>21:30</td><td><strong>Bar Leone</strong>（中環 Bridges St 15・徒歩5分）</td><td>世界1位バー・予約不可・並ぶ前提</td></tr>
+          <tr><td>20:00</td><td><strong>ディナー: <a href="https://maps.google.com/?q=Lin+Heung+Tea+House+Central+Hong+Kong" target="_blank" rel="noopener" class="mlink">蓮香樓 Lin Heung Tea House</a></strong>（中環威靈頓街160号）</td><td>1930年代創業ワゴン式飲茶・予約不可・並び前提</td></tr>
+          <tr><td>21:30</td><td><strong><a href="https://maps.google.com/?q=Bar+Leone+Central+Hong+Kong" target="_blank" rel="noopener" class="mlink">Bar Leone</a></strong>（中環 Bridges St 15・徒歩5分）</td><td>世界1位バー・予約不可・並ぶ前提</td></tr>
           <tr><td>23:00</td><td>タクシーでホテル戻り</td><td></td></tr>
         </tbody>
       </table>
@@ -533,7 +550,7 @@ details.day[open] .dchev { transform: rotate(180deg); }
         <ul>
           <li><strong>萬興製衣</strong> → 事前確認で受取不可なら省略（旅程に最初から組み込まない）</li>
           <li><strong>SOGO/Times Square</strong> → 疲労時は省略してホテルで休憩</li>
-          <li><strong>Bar Leone</strong> → 並び1時間以上なら翌日持越し。代替: The Old Man / Coa（ともに中環）</li>
+          <li><strong>Bar Leone</strong> → 並び1時間以上なら翌日持越し。代替: <a href="https://maps.google.com/?q=The+Old+Man+Bar+Central+Hong+Kong" target="_blank" rel="noopener" class="mlink">The Old Man</a> / <a href="https://maps.google.com/?q=Coa+Bar+Central+Hong+Kong" target="_blank" rel="noopener" class="mlink">Coa</a>（ともに中環）</li>
         </ul>
       </div>
     </div>
@@ -555,19 +572,19 @@ details.day[open] .dchev { transform: rotate(180deg); }
         <thead><tr><th>時刻</th><th>内容</th><th>備考</th></tr></thead>
         <tbody>
           <tr><td>07:30</td><td>MTR 天后 → 中環</td><td></td></tr>
-          <tr><td>08:00</td><td><strong>朝食: 蘭芳園 中環本店</strong>（結志街2号）</td><td>シルクストッキングミルクティー発祥・激混み・8:00前到着推奨</td></tr>
-          <tr><td>09:20–09:35</td><td><strong>泰昌餅家（擺花街）でエッグタルトテイクアウト</strong></td><td>ポルトガル総督絶賛のカスタード系・蘭芳園から徒歩5分</td></tr>
-          <tr><td>09:30–11:00</td><td><strong>ハリウッドロード散策 → Tai Kwun 大館</strong></td><td>旧中央警察署・無料・全屋内ギャラリー・雨でも快適</td></tr>
-          <tr><td>11:00–12:30</td><td><strong>PMQ 元創方</strong></td><td>クリエイティブ複合施設・ショップ＋カフェ</td></tr>
-          <tr><td>12:30</td><td><strong>コーヒー絶品店③: NOC Coffee Co.</strong> or <strong>Cupping Room</strong></td><td>世界大会受賞バリスタ系列・上環/中環</td></tr>
+          <tr><td>08:00</td><td><strong>朝食: <a href="https://maps.google.com/?q=Lan+Fong+Yuen+Central+Hong+Kong" target="_blank" rel="noopener" class="mlink">蘭芳園 中環本店</a></strong>（結志街2号）</td><td>シルクストッキングミルクティー発祥・激混み・8:00前到着推奨</td></tr>
+          <tr><td>09:20–09:35</td><td><strong><a href="https://maps.google.com/?q=Tai+Cheong+Bakery+Lyndhurst+Terrace+Central+Hong+Kong" target="_blank" rel="noopener" class="mlink">泰昌餅家（擺花街）</a>でエッグタルトテイクアウト</strong></td><td>ポルトガル総督絶賛のカスタード系・蘭芳園から徒歩5分</td></tr>
+          <tr><td>09:30–11:00</td><td><strong>ハリウッドロード散策 → <a href="https://maps.google.com/?q=Tai+Kwun+Central+Hong+Kong" target="_blank" rel="noopener" class="mlink">Tai Kwun 大館</a></strong></td><td>旧中央警察署・無料・全屋内ギャラリー・雨でも快適</td></tr>
+          <tr><td>11:00–12:30</td><td><strong><a href="https://maps.google.com/?q=PMQ+Aberdeen+Street+Hong+Kong" target="_blank" rel="noopener" class="mlink">PMQ 元創方</a></strong></td><td>クリエイティブ複合施設・ショップ＋カフェ</td></tr>
+          <tr><td>12:30</td><td><strong>コーヒー絶品店③: <a href="https://maps.google.com/?q=NOC+Coffee+Co+Sheung+Wan+Hong+Kong" target="_blank" rel="noopener" class="mlink">NOC Coffee Co.</a></strong> or <strong><a href="https://maps.google.com/?q=Cupping+Room+Coffee+Roasters+Central+Hong+Kong" target="_blank" rel="noopener" class="mlink">Cupping Room</a></strong></td><td>世界大会受賞バリスタ系列・上環/中環</td></tr>
           <tr><td>13:30</td><td>昼食: 中環エリアで軽め（茶餐廳 or 街フード）</td><td></td></tr>
           <tr><td>14:30</td><td>MTR 中環 → 尖沙咀</td><td></td></tr>
-          <tr><td>15:00–17:30</td><td><strong>香港歴史博物館</strong>（尖沙咀）</td><td>古代〜1997年返還まで網羅・雨の日定番</td></tr>
-          <tr><td>17:30</td><td><strong>スターフェリー: 尖沙咀 → 湾仔/中環</strong></td><td>HK$5・ビクトリアハーバー夕暮れクロス・屋根付き客室あり</td></tr>
+          <tr><td>15:00–17:30</td><td><strong><a href="https://maps.google.com/?q=Hong+Kong+Museum+of+History+Tsim+Sha+Tsui" target="_blank" rel="noopener" class="mlink">香港歴史博物館</a></strong>（尖沙咀）</td><td>古代〜1997年返還まで網羅・雨の日定番</td></tr>
+          <tr><td>17:30</td><td><strong><a href="https://maps.google.com/?q=Star+Ferry+Tsim+Sha+Tsui+Pier" target="_blank" rel="noopener" class="mlink">スターフェリー: 尖沙咀 → 湾仔/中環</a></strong></td><td>HK$5（≈100円）・ビクトリアハーバー夕暮れクロス・屋根付き客室あり</td></tr>
           <tr><td>18:00</td><td>MTRで湾仔へ</td><td></td></tr>
-          <tr><td>19:00</td><td><strong>ディナー: 甘牌燒鵝 Kam's Roast Goose</strong>（湾仔）</td><td>ミシュラン1つ星・潤いのあるローストグース</td></tr>
+          <tr><td>19:00</td><td><strong>ディナー: <a href="https://maps.google.com/?q=Kam%27s+Roast+Goose+Wan+Chai+Hong+Kong" target="_blank" rel="noopener" class="mlink">甘牌燒鵝 Kam's Roast Goose</a></strong>（湾仔）</td><td>ミシュラン1つ星・潤いのあるローストグース</td></tr>
           <tr><td>20:30</td><td>MTR 湾仔 → 天后</td><td></td></tr>
-          <tr><td>21:00</td><td><strong>The Coffee Academics</strong>（銅鑼灣・24時近くまで）</td><td>雨夜のんびりデザート</td></tr>
+          <tr><td>21:00</td><td><strong><a href="https://maps.google.com/?q=The+Coffee+Academics+Causeway+Bay+Hong+Kong" target="_blank" rel="noopener" class="mlink">The Coffee Academics</a></strong>（銅鑼灣・24時近くまで）</td><td>雨夜のんびりデザート</td></tr>
           <tr><td>22:30</td><td>ホテル戻り</td><td></td></tr>
         </tbody>
       </table>
@@ -608,14 +625,14 @@ details.day[open] .dchev { transform: rotate(180deg); }
         <thead><tr><th>時刻</th><th>内容</th><th>備考</th></tr></thead>
         <tbody>
           <tr><td>07:00</td><td>起床・最終パッキング</td><td></td></tr>
-          <tr><td>08:00</td><td><strong>朝食: 金鳳茶餐廳</strong>（最後の菠蘿油＋ミルクティー）</td><td>代替: 檀島咖啡餅店（湾仔・MTR1駅）</td></tr>
-          <tr><td>09:30–11:00</td><td><strong>天后廟参拝 + ヴィクトリア公園 軽散歩</strong></td><td>雨なら <strong>SOGO銅鑼灣で土産仕上げ</strong>に切替</td></tr>
+          <tr><td>08:00</td><td><strong>朝食: <a href="https://maps.google.com/?q=Golden+Phoenix+Restaurant+Causeway+Bay+Hong+Kong" target="_blank" rel="noopener" class="mlink">金鳳茶餐廳</a></strong>（最後の菠蘿油＋ミルクティー）</td><td>代替: <a href="https://maps.google.com/?q=Honolulu+Coffee+Shop+Wan+Chai+Hong+Kong" target="_blank" rel="noopener" class="mlink">檀島咖啡餅店</a>（湾仔・MTR1駅）</td></tr>
+          <tr><td>09:30–11:00</td><td><strong><a href="https://maps.google.com/?q=Tin+Hau+Temple+Hong+Kong" target="_blank" rel="noopener" class="mlink">天后廟</a>参拝 + <a href="https://maps.google.com/?q=Victoria+Park+Causeway+Bay+Hong+Kong" target="_blank" rel="noopener" class="mlink">ヴィクトリア公園</a> 軽散歩</strong></td><td>雨なら <strong><a href="https://maps.google.com/?q=SOGO+Causeway+Bay+Hong+Kong" target="_blank" rel="noopener" class="mlink">SOGO銅鑼灣</a>で土産仕上げ</strong>に切替</td></tr>
           <tr><td>11:30</td><td>ホテル戻り・最終チェック</td><td></td></tr>
           <tr><td>12:00</td><td><strong>チェックアウト（厳守）</strong> → スーツケースをフロントに再預け</td><td></td></tr>
-          <tr><td>12:30</td><td><strong>ランチ: 稻香 Tao Heung（銅鑼灣）</strong></td><td>気軽な飲茶チェーン・時短に最適</td></tr>
-          <tr><td>13:30–14:15</td><td><strong>SOGO銅鑼灣で最終土産</strong>（茶葉・菓子・コスメ）</td><td>重い物は妻の受託に集約</td></tr>
+          <tr><td>12:30</td><td><strong>ランチ: <a href="https://maps.google.com/?q=Tao+Heung+Restaurant+Causeway+Bay+Hong+Kong" target="_blank" rel="noopener" class="mlink">稻香 Tao Heung（銅鑼灣）</a></strong></td><td>気軽な飲茶チェーン・時短に最適</td></tr>
+          <tr><td>13:30–14:15</td><td><strong><a href="https://maps.google.com/?q=SOGO+Causeway+Bay+Hong+Kong" target="_blank" rel="noopener" class="mlink">SOGO銅鑼灣</a>で最終土産</strong>（茶葉・菓子・コスメ）</td><td>重い物は妻の受託に集約</td></tr>
           <tr><td>14:15</td><td>ホテル戻り → スーツケース受取</td><td></td></tr>
-          <tr><td>14:30</td><td><strong>A11バス乗車</strong>（軒尼詩道 or 維多利亞公園付近）</td><td>HK$41.9/人・所要70〜90分</td></tr>
+          <tr><td>14:30</td><td><strong>A11バス乗車</strong>（軒尼詩道 or 維多利亞公園付近）</td><td>HK$41.9/人（≈800円）・所要70〜90分</td></tr>
           <tr><td>16:00</td><td>HKG到着</td><td></td></tr>
           <tr><td>16:15</td><td><strong>UOカウンターで妻の受託預け</strong></td><td>チェックイン締切16:35 ／ 受託締切16:50</td></tr>
           <tr><td>16:45</td><td>保安検査・出国審査</td><td></td></tr>
@@ -627,7 +644,7 @@ details.day[open] .dchev { transform: rotate(180deg); }
         <ul>
           <li><strong>第一候補:</strong> A11バス（14:30発・銅鑼灣）→ HK$41.9/人・70〜90分</li>
           <li><strong>A11遅延 or 雷雨強い場合:</strong> MTR + Airport Express（天后→香港駅→HKG・45分・HK$125/人）</li>
-          <li><strong>どちらも困難な場合:</strong> タクシー（HK$350〜400・40〜50分）</li>
+          <li><strong>どちらも困難な場合:</strong> タクシー（HK$350〜400・≈6,700〜7,600円・40〜50分）</li>
         </ul>
       </div>
       <div class="note skip">
@@ -648,21 +665,21 @@ details.day[open] .dchev { transform: rotate(180deg); }
   <div class="coffee-item">
     <div class="cnum">1</div>
     <div class="cinfo">
-      <h4>% Arabica Quarry Bay</h4>
+      <h4><a href="https://maps.google.com/?q=%25+Arabica+Quarry+Bay+Hong+Kong" target="_blank" rel="noopener" class="mlink">% Arabica Quarry Bay</a></h4>
       <p>5/12夕方・怪獸大廈隣接 ／ 撮影後にテイクアウト休憩</p>
     </div>
   </div>
   <div class="coffee-item">
     <div class="cnum">2</div>
     <div class="cinfo">
-      <h4>Cafe Leitz by INTERVAL（Leica Store銅鑼灣内）</h4>
+      <h4><a href="https://maps.google.com/?q=Leica+Store+Cafe+Leitz+Causeway+Bay+Hong+Kong" target="_blank" rel="noopener" class="mlink">Cafe Leitz by INTERVAL</a>（Leica Store銅鑼灣内）</h4>
       <p>5/14午後・白沙道12号 ／ Coffee Collective使用・エスプレッソライムトニック</p>
     </div>
   </div>
   <div class="coffee-item">
     <div class="cnum">3</div>
     <div class="cinfo">
-      <h4>NOC Coffee Co. or Cupping Room Coffee Roaster</h4>
+      <h4><a href="https://maps.google.com/?q=NOC+Coffee+Co+Sheung+Wan+Hong+Kong" target="_blank" rel="noopener" class="mlink">NOC Coffee Co.</a> or <a href="https://maps.google.com/?q=Cupping+Room+Coffee+Roasters+Hong+Kong" target="_blank" rel="noopener" class="mlink">Cupping Room Coffee Roaster</a></h4>
       <p>5/15昼・上環/中環 ／ 世界大会受賞バリスタ系列</p>
     </div>
   </div>
@@ -675,23 +692,23 @@ details.day[open] .dchev { transform: rotate(180deg); }
     <table class="gtbl red">
       <thead><tr><th>カテゴリ</th><th>内容</th><th>日程</th></tr></thead>
       <tbody>
-        <tr><td>ピーク夜景</td><td>Peak Tram + Sky Terrace 428</td><td>5/12夜</td></tr>
-        <tr><td>オープントップバス</td><td>H2K ナイトコース（中環6号埠頭発）</td><td>5/12夜</td></tr>
-        <tr><td>スターフェリー</td><td>尖沙咀 → 湾仔/中環</td><td>5/15夕方</td></tr>
-        <tr><td>ローストグース</td><td>一樂燒鵝（中環・ミシュラン1つ星・カリッと派）</td><td>5/12夜</td></tr>
-        <tr><td>エッグタルト</td><td>泰昌餅家（中環擺花街）</td><td>5/15朝</td></tr>
-        <tr><td>ワンタン麺</td><td>沾仔記（向かいに麥奀・食べ比べ可）</td><td>5/14昼</td></tr>
-        <tr><td>ワゴン飲茶</td><td>蓮香樓（1930年代創業・予約不可）</td><td>5/14夜</td></tr>
-        <tr><td>世界1位バー</td><td>Bar Leone（中環・予約不可・並び前提）</td><td>5/14夜</td></tr>
-        <tr><td>マカオ日帰り</td><td>TurboJET + A Lorcha（ポルトガル料理）</td><td>5/13</td></tr>
-        <tr><td>ピンクの団地</td><td>彩虹邨（2028年再開発予定・今回必見）</td><td>5/12午前</td></tr>
-        <tr><td>怪獸大廈</td><td>Monster Building（太古・MTR3駅）</td><td>5/12夕方</td></tr>
-        <tr><td>現代美術館</td><td>M+ ミュージアム（西九文化区）</td><td>5/14午前</td></tr>
-        <tr><td>Leica Store</td><td>Causeway Bay + Cafe Leitz</td><td>5/14午後</td></tr>
-        <tr><td>歴史博物館</td><td>香港歴史博物館（尖沙咀）</td><td>5/15午後</td></tr>
+        <tr><td>ピーク夜景</td><td><a href="https://maps.google.com/?q=Sky+Terrace+428+Victoria+Peak+Hong+Kong" target="_blank" rel="noopener" class="mlink">Peak Tram + Sky Terrace 428</a></td><td>5/12夜</td></tr>
+        <tr><td>オープントップバス</td><td><a href="https://maps.google.com/?q=Central+Pier+6+Hong+Kong" target="_blank" rel="noopener" class="mlink">H2K ナイトコース（中環6号埠頭発）</a></td><td>5/12夜</td></tr>
+        <tr><td>スターフェリー</td><td><a href="https://maps.google.com/?q=Star+Ferry+Tsim+Sha+Tsui+Pier" target="_blank" rel="noopener" class="mlink">尖沙咀 → 湾仔/中環</a></td><td>5/15夕方</td></tr>
+        <tr><td>ローストグース</td><td><a href="https://maps.google.com/?q=Yat+Lok+Roast+Goose+Restaurant+Central+Hong+Kong" target="_blank" rel="noopener" class="mlink">一樂燒鵝（中環・ミシュラン1つ星・カリッと派）</a></td><td>5/12夜</td></tr>
+        <tr><td>エッグタルト</td><td><a href="https://maps.google.com/?q=Tai+Cheong+Bakery+Lyndhurst+Terrace+Central+Hong+Kong" target="_blank" rel="noopener" class="mlink">泰昌餅家（中環擺花街）</a></td><td>5/15朝</td></tr>
+        <tr><td>ワンタン麺</td><td><a href="https://maps.google.com/?q=Tsim+Chai+Kee+Wellington+Street+Hong+Kong" target="_blank" rel="noopener" class="mlink">沾仔記（向かいに麥奀・食べ比べ可）</a></td><td>5/14昼</td></tr>
+        <tr><td>ワゴン飲茶</td><td><a href="https://maps.google.com/?q=Lin+Heung+Tea+House+Central+Hong+Kong" target="_blank" rel="noopener" class="mlink">蓮香樓（1930年代創業・予約不可）</a></td><td>5/14夜</td></tr>
+        <tr><td>世界1位バー</td><td><a href="https://maps.google.com/?q=Bar+Leone+Central+Hong+Kong" target="_blank" rel="noopener" class="mlink">Bar Leone（中環・予約不可・並び前提）</a></td><td>5/14夜</td></tr>
+        <tr><td>マカオ日帰り</td><td><a href="https://maps.google.com/?q=Restaurante+Litoral+Macau" target="_blank" rel="noopener" class="mlink">TurboJET + Restaurante Litoral（ポルトガル料理）</a></td><td>5/13</td></tr>
+        <tr><td>ピンクの団地</td><td><a href="https://maps.google.com/?q=Choi+Hung+Estate+Hong+Kong" target="_blank" rel="noopener" class="mlink">彩虹邨（2028年再開発予定・今回必見）</a></td><td>5/12午前</td></tr>
+        <tr><td>怪獸大廈</td><td><a href="https://maps.google.com/?q=Monster+Building+Quarry+Bay+Hong+Kong" target="_blank" rel="noopener" class="mlink">Monster Building（太古・MTR3駅）</a></td><td>5/12夕方</td></tr>
+        <tr><td>現代美術館</td><td><a href="https://maps.google.com/?q=M%2B+Museum+West+Kowloon+Hong+Kong" target="_blank" rel="noopener" class="mlink">M+ ミュージアム（西九文化区）</a></td><td>5/14午前</td></tr>
+        <tr><td>Leica Store</td><td><a href="https://maps.google.com/?q=Leica+Store+Causeway+Bay+Hong+Kong" target="_blank" rel="noopener" class="mlink">Causeway Bay + Cafe Leitz</a></td><td>5/14午後</td></tr>
+        <tr><td>歴史博物館</td><td><a href="https://maps.google.com/?q=Hong+Kong+Museum+of+History+Tsim+Sha+Tsui" target="_blank" rel="noopener" class="mlink">香港歴史博物館（尖沙咀）</a></td><td>5/15午後</td></tr>
         <tr><td>オーダーシャツ</td><td>萬興製衣（仕上がり日数次第・△オプション）</td><td>5/14</td></tr>
-        <tr><td>黄大仙寺</td><td>参拝・おみくじ（九龍・早朝）</td><td>5/12午前</td></tr>
-        <tr><td>鴨寮街</td><td>レトロ電子市場・深水埗散策</td><td>5/12午前</td></tr>
+        <tr><td>黄大仙寺</td><td><a href="https://maps.google.com/?q=Wong+Tai+Sin+Temple+Hong+Kong" target="_blank" rel="noopener" class="mlink">参拝・おみくじ（九龍・早朝）</a></td><td>5/12午前</td></tr>
+        <tr><td>鴨寮街</td><td><a href="https://maps.google.com/?q=Apliu+Street+Sham+Shui+Po+Hong+Kong" target="_blank" rel="noopener" class="mlink">レトロ電子市場・深水埗散策</a></td><td>5/12午前</td></tr>
       </tbody>
     </table>
   </div>
@@ -704,23 +721,23 @@ details.day[open] .dchev { transform: rotate(180deg); }
     <table class="gtbl dark">
       <thead><tr><th>シーン</th><th>推奨手段</th><th>料金目安</th></tr></thead>
       <tbody>
-        <tr><td>MTR沿線（中環・尖沙咀・旺角・銅鑼灣）</td><td>MTR</td><td>HK$5〜15</td></tr>
-        <tr><td>短距離（天后〜銅鑼灣など2km以内）</td><td>徒歩 or トラム（叮叮車）</td><td>トラム HK$3均一</td></tr>
+        <tr><td>MTR沿線（中環・尖沙咀・旺角・銅鑼灣）</td><td>MTR</td><td>HK$5〜15（≈100〜300円）</td></tr>
+        <tr><td>短距離（天后〜銅鑼灣など2km以内）</td><td>徒歩 or トラム（叮叮車）</td><td>トラム HK$3均一（≈60円）</td></tr>
         <tr><td>ビクトリア・ピーク</td><td>Peak Tram（要事前予約）</td><td>—</td></tr>
-        <tr><td>雨天時・夜遅く・荷物多い時</td><td>タクシー（赤）</td><td>初乗りHK$29・市内HK$50〜100</td></tr>
-        <tr><td>九龍 ↔ HK島（観光）</td><td>スターフェリー</td><td>HK$5前後・8分</td></tr>
-        <tr><td>空港 → 銅鑼灣（往路・荷物あり）</td><td>A21バス（第一候補）</td><td>HK$33/人・65〜80分</td></tr>
-        <tr><td>銅鑼灣 → 空港（復路）</td><td>A11バス（第一候補）</td><td>HK$41.9/人・70〜90分</td></tr>
-        <tr><td>空港 ↔ 市内（速さ優先）</td><td>Airport Express → 中環/天后</td><td>HK$120+5/人・40〜45分</td></tr>
-        <tr><td>香港 ↔ マカオ</td><td>TurboJET フェリー</td><td>往復HK$320前後・約1時間</td></tr>
-        <tr><td>緊急時・タクシー（空港↔銅鑼灣）</td><td>赤タクシー or Uber</td><td>HK$350〜400・40〜50分</td></tr>
+        <tr><td>雨天時・夜遅く・荷物多い時</td><td>タクシー（赤）</td><td>初乗りHK$29（≈560円）・市内HK$50〜100</td></tr>
+        <tr><td>九龍 ↔ HK島（観光）</td><td>スターフェリー</td><td>HK$5前後（≈100円）・8分</td></tr>
+        <tr><td>空港 → 銅鑼灣（往路・荷物あり）</td><td>A21バス（第一候補）</td><td>HK$33/人（≈630円）・65〜80分</td></tr>
+        <tr><td>銅鑼灣 → 空港（復路）</td><td>A11バス（第一候補）</td><td>HK$41.9/人（≈800円）・70〜90分</td></tr>
+        <tr><td>空港 ↔ 市内（速さ優先）</td><td>Airport Express → 中環/天后</td><td>HK$120+5/人（≈2,400円）・40〜45分</td></tr>
+        <tr><td>香港 ↔ マカオ</td><td>TurboJET フェリー</td><td>往復HK$320前後（≈6,400円）・約1時間</td></tr>
+        <tr><td>緊急時・タクシー（空港↔銅鑼灣）</td><td>赤タクシー or Uber</td><td>HK$350〜400（≈6,700〜7,600円）・40〜50分</td></tr>
       </tbody>
     </table>
   </div>
   <div class="card">
     <p class="card-subheading">🐙 オクトパスカード（八達通）運用</p>
     <ul class="body-list">
-      <li>初日チャージ <strong>HK$200/人</strong>。1〜2回 HK$100 ずつ追加チャージで5日間カバー可</li>
+      <li>初日チャージ <strong>HK$200/人（≈3,800〜4,000円）</strong>。1〜2回 HK$100 ずつ追加チャージで5日間カバー可</li>
       <li>MTR・バス・スターフェリー・コンビニ全てこれ1枚で完結</li>
       <li>残高は帰国前にMTRカウンターで払い戻し可（手数料HK$11）</li>
       <li>Apple Pay 八達通の事前登録でも利用可</li>
@@ -761,6 +778,11 @@ details.day[open] .dchev { transform: rotate(180deg); }
 <!-- KEY NUMBERS -->
 <div class="section">
   <h2 class="section-title">🔢 キーナンバー早見表</h2>
+  <div class="currency-bar">
+    <span>💱 通貨レート目安（2026年5月時点）</span>
+    <strong>1 HK$ ≈ 19〜20円</strong>
+    <span>｜ HK$100 ≈ 1,900〜2,000円 ｜ HK$1,000 ≈ 19,000〜20,000円</span>
+  </div>
   <div class="knums">
     <div class="knum"><span class="knum-label">自宅出発目標（5/11）</span><span class="knum-value">21:30</span></div>
     <div class="knum"><span class="knum-label">HND到着目標</span><span class="knum-value">23:00</span></div>
@@ -774,9 +796,9 @@ details.day[open] .dchev { transform: rotate(180deg); }
     <div class="knum"><span class="knum-label">UO622 チェックイン締切</span><span class="knum-value">16:35</span></div>
     <div class="knum"><span class="knum-label">妻の受託締切</span><span class="knum-value">16:50</span></div>
     <div class="knum"><span class="knum-label">UO622 出発</span><span class="knum-value">17:35</span></div>
-    <div class="knum"><span class="knum-label">A11バス（銅鑼灣→空港）</span><span class="knum-value">HK$41.9/人</span></div>
-    <div class="knum"><span class="knum-label">Airport Express</span><span class="knum-value">HK$120/人</span></div>
-    <div class="knum"><span class="knum-label">タクシー（空港↔銅鑼灣）</span><span class="knum-value">HK$350〜400</span></div>
+    <div class="knum gold"><span class="knum-label">A11バス（銅鑼灣→空港）</span><span class="knum-value">HK$41.9 ≈ 800円</span></div>
+    <div class="knum gold"><span class="knum-label">Airport Express</span><span class="knum-value">HK$120 ≈ 2,300円</span></div>
+    <div class="knum gold"><span class="knum-label">タクシー（空港↔銅鑼灣）</span><span class="knum-value">HK$350〜400</span></div>
   </div>
 </div>
 
@@ -789,9 +811,9 @@ details.day[open] .dchev { transform: rotate(180deg); }
       <tbody>
         <tr><td>5/11 京急遅延・終電逃し</td><td>タクシーに即切替。自宅 → HND第3T 直行・約3,500円</td></tr>
         <tr><td>HKG早朝入境混雑（6:00便集中）</td><td>バッファ90分を見込み・A21始発7:30ごろ乗車前提</td></tr>
-        <tr><td>5/14〜16 雷雨で交通遅延</td><td>復路はバスよりMTR+Airport Expressを優先。タクシー予算HK$400を確保</td></tr>
+        <tr><td>5/14〜16 雷雨で交通遅延</td><td>復路はバスよりMTR+Airport Expressを優先。タクシー予算HK$400（≈7,600円）を確保</td></tr>
         <tr><td>妻の受託超過</td><td>出発前夜に体重計で計量・20kg厳守。超過なら夫の身の回り品に分散</td></tr>
-        <tr><td>ホテル早朝荷物預け不可</td><td>銅鑼灣MTR駅近くのLuggageHero/Nannybag（HK$30〜/日）を使用</td></tr>
+        <tr><td>ホテル早朝荷物預け不可</td><td>銅鑼灣MTR駅近くのLuggageHero/Nannybag（HK$30〜/日・≈570円〜）を使用</td></tr>
         <tr><td>復路UO622遅延・欠航</td><td>香港エクスプレスアプリで通知ON。帰宅手段（タクシーorNearMe 1,980円/人）を事前イメージ</td></tr>
       </tbody>
     </table>
@@ -806,7 +828,7 @@ details.day[open] .dchev { transform: rotate(180deg); }
     <div>☂️ 折りたたみ傘（5/13以降毎日携帯）</div>
     <div>🧥 薄手レインジャケット</div>
     <div>🛂 パスポート・予約バウチャー（紙+スクショ）</div>
-    <div>💵 予備現金（HK$500程度）</div>
+    <div>💵 予備現金（HK$500程度・≈9,500〜10,000円）</div>
     <div>🔋 モバイルバッテリー・充電ケーブル</div>
     <div>💊 常備薬（胃薬・痛み止め・絆創膏）</div>
   </div>
@@ -814,7 +836,7 @@ details.day[open] .dchev { transform: rotate(180deg); }
 
 <div class="footer">
   <p>🇭🇰 香港旅行のしおり 2026.05.12–16</p>
-  <p class="footer-sub">作成日: 2026-05-09</p>
+  <p class="footer-sub">作成日: 2026-05-09 ／ 通貨レート: 1 HK$ ≈ 19〜20円（参考値）</p>
 </div>
 
 </div><!-- /container -->
