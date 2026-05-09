@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>香港旅行のしおり 2026.5.12–16</title>
+<style>
+:root {
+  --hk-red: #B5121B;
+  --hk-gold: #C9A84C;
+  --dark: #1C1C1E;
+  --bg: #F5F0E8;
+  --card: #FFFFFF;
+  --text: #2D2D2D;
+  --muted: #6B6B6B;
+  --sunny: #3A9B5C;
+  --caution: #E07B00;
+  --stormy: #546E7A;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* COVER */
+.cover {
+  background: linear-gradient(150deg, #1C1C1E 0%, #8B0D14 55%, #C9A84C 100%);
+  color: white;
+  padding: 56px 32px 48px;
+  text-align: center;
+}
+.cover-flag { font-size: 3.5rem; margin-bottom: 12px; }
+.cover-title { font-size: 2.2rem; font-weight: 800; letter-spacing: 0.08em; margin-bottom: 6px; }
+.cover-subtitle { font-size: 1rem; opacity: 0.85; letter-spacing: 0.04em; }
+.cover-chips {
+  display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 24px;
+}
+.cover-chip {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-size: 0.85rem;
+}
+.cover-chip strong { display: block; font-size: 0.75rem; opacity: 0.7; margin-bottom: 1px; }
+
+/* LAYOUT */
+.container { max-width: 920px; margin: 0 auto; padding: 28px 16px; }
+.section { margin-bottom: 36px; }
+.section-title {
+  font-size: 1.1rem; font-weight: 700; color: var(--hk-red);
+  border-bottom: 2px solid var(--hk-red);
+  padding-bottom: 6px; margin-bottom: 16px;
+}
+.card {
+  background: var(--card); border-radius: 12px;
+  padding: 18px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 10px;
+}
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 620px) { .grid-2 { grid-template-columns: 1fr; } }
+
+/* SUMMARY BOX */
+.summary-box {
+  background: linear-gradient(135deg, #1C1C1E, #2D2D2D);
+  color: white; border-radius: 12px; padding: 20px 24px; margin-bottom: 28px;
+}
+.summary-box h3 { color: var(--hk-gold); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px; }
+.summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; }
+.summary-item { padding: 8px 12px; background: rgba(255,255,255,0.09); border-radius: 8px; font-size: 0.85rem; }
+.summary-item strong { display: block; color: var(--hk-gold); font-size: 0.72rem; margin-bottom: 2px; }
+
+/* FLIGHT CARDS */
+.flight-card { background: var(--card); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.flight-header {
+  background: var(--dark); color: white; padding: 10px 18px;
+  font-weight: 700; font-size: 0.88rem; display: flex; justify-content: space-between;
+}
+.flight-header span:last-child { opacity: 0.7; font-weight: 400; }
+.flight-body { padding: 16px 18px; }
+.flight-route { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.flight-ap { font-size: 1.9rem; font-weight: 800; color: var(--dark); }
+.flight-time { font-size: 0.82rem; color: var(--muted); }
+.flight-mid { flex: 1; text-align: center; }
+.flight-line { height: 2px; background: linear-gradient(90deg, var(--hk-red), var(--hk-gold)); margin: 6px 0; }
+.flight-dur { font-size: 0.72rem; color: var(--muted); }
+.flight-info { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 0.82rem; }
+.fi { background: var(--bg); padding: 5px 10px; border-radius: 6px; }
+.fi small { display: block; font-size: 0.7rem; color: var(--muted); }
+.fi-warn { grid-column: 1/-1; background: #FFF3E0; color: #B45300; }
+
+/* WEATHER */
+.weather-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+@media (max-width: 600px) { .weather-row { grid-template-columns: 1fr 1fr; } }
+.wcard {
+  background: var(--card); border-radius: 10px; padding: 12px 8px;
+  text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.06); border-top: 4px solid;
+}
+.wcard.good { border-top-color: var(--sunny); }
+.wcard.caution { border-top-color: var(--caution); }
+.wcard.bad { border-top-color: var(--stormy); }
+.wdate { font-size: 0.78rem; color: var(--muted); }
+.wicon { font-size: 1.9rem; margin: 5px 0; }
+.wdesc { font-size: 0.75rem; font-weight: 700; }
+.wtemp { font-size: 0.82rem; color: var(--hk-red); margin-top: 3px; }
+.wrain { font-size: 0.72rem; color: var(--muted); }
+
+/* DAY CARDS */
+details.day {
+  background: var(--card); border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 10px; overflow: hidden;
+}
+details.day summary {
+  cursor: pointer; padding: 14px 18px;
+  display: flex; align-items: center; gap: 12px;
+  list-style: none; user-select: none;
+}
+details.day summary::-webkit-details-marker { display: none; }
+.dbadge {
+  width: 46px; height: 46px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 0.75rem; color: white; flex-shrink: 0; text-align: center; line-height: 1.2;
+}
+.dbadge.good { background: var(--sunny); }
+.dbadge.caution { background: var(--caution); }
+.dbadge.bad { background: var(--stormy); }
+.dhead { flex: 1; }
+.dhead-date { font-weight: 700; font-size: 0.95rem; }
+.dhead-concept { font-size: 0.8rem; color: var(--muted); }
+.dwbadge { font-size: 0.78rem; padding: 4px 10px; border-radius: 20px; font-weight: 600; white-space: nowrap; }
+.dwbadge.good { background: #E8F5E9; color: #1B5E20; }
+.dwbadge.caution { background: #FFF3E0; color: #BF360C; }
+.dwbadge.bad { background: #ECEFF1; color: #37474F; }
+.dchev { color: var(--muted); font-size: 0.9rem; transition: transform 0.2s; }
+details.day[open] .dchev { transform: rotate(180deg); }
+.dcontent { padding: 0 18px 18px; }
+
+/* TIMELINE TABLE */
+.tbl { width: 100%; border-collapse: collapse; font-size: 0.845rem; margin-bottom: 14px; }
+.tbl thead tr { background: var(--dark); color: white; }
+.tbl th { padding: 7px 10px; text-align: left; font-size: 0.78rem; font-weight: 600; }
+.tbl td { padding: 7px 10px; border-bottom: 1px solid #F0EDE8; vertical-align: top; }
+.tbl tr:nth-child(even) td { background: #FAFAFA; }
+.tbl tr:last-child td { border-bottom: none; }
+.tbl td:first-child { white-space: nowrap; font-weight: 700; color: var(--hk-red); font-size: 0.78rem; width: 75px; }
+.tbl td:nth-child(3) { color: var(--muted); font-size: 0.78rem; }
+
+/* DAY NOTE BOXES */
+.note { border-radius: 8px; padding: 10px 14px; margin: 10px 0; font-size: 0.835rem; }
+.note h4 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+.note ul { padding-left: 16px; }
+.note li { margin-bottom: 3px; }
+.note.skip { background: #FFF8F0; border-left: 3px solid var(--hk-gold); }
+.note.skip h4 { color: #9B6D00; }
+.note.rain { background: #F0F4FF; border-left: 3px solid #3D6EBF; }
+.note.rain h4 { color: #1A3F8F; }
+.note.warn { background: #FFF0F0; border-left: 3px solid var(--hk-red); }
+.note.warn h4 { color: var(--hk-red); }
+
+/* COFFEE */
+.coffee-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px; background: var(--card); border-radius: 10px; margin-bottom: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+.cnum { width: 32px; height: 32px; background: var(--hk-gold); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.9rem; flex-shrink: 0; }
+.cinfo h4 { font-size: 0.92rem; margin-bottom: 3px; }
+.cinfo p { font-size: 0.8rem; color: var(--muted); }
+
+/* TABLES (generic) */
+.gtbl { width: 100%; border-collapse: collapse; font-size: 0.84rem; }
+.gtbl th { padding: 8px 12px; text-align: left; font-weight: 600; }
+.gtbl td { padding: 8px 12px; border-bottom: 1px solid #EBEBEB; vertical-align: top; }
+.gtbl tr:last-child td { border-bottom: none; }
+.gtbl tr:nth-child(even) td { background: #FAFAFA; }
+.gtbl.red thead { background: var(--hk-red); color: white; }
+.gtbl.dark thead { background: var(--dark); color: white; }
+.gtbl.slate thead { background: #455A64; color: white; }
+
+/* KEY NUMBERS */
+.knums { display: grid; grid-template-columns: repeat(auto-fit, minmax(195px, 1fr)); gap: 8px; }
+.knum { background: var(--card); border-radius: 8px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+.knum-label { font-size: 0.78rem; color: var(--muted); }
+.knum-value { font-weight: 800; color: var(--hk-red); font-size: 0.92rem; }
+
+/* LUGGAGE */
+.lug { background: var(--card); border-radius: 12px; padding: 16px 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.lug h3 { font-size: 0.92rem; font-weight: 700; margin-bottom: 10px; padding-bottom: 7px; border-bottom: 1px solid #F0EDE8; }
+.lug ul { padding-left: 18px; font-size: 0.84rem; line-height: 1.85; }
+
+/* ITEMS GRID */
+.items-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 6px; font-size: 0.84rem; }
+.items-grid div { background: var(--card); border-radius: 8px; padding: 7px 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+
+/* FLIGHT DESTINATION (right-aligned arrival column) */
+.text-right { text-align: right; }
+
+/* CARD VARIANTS */
+.card-flush { padding: 0; overflow: hidden; }
+
+/* HOTEL CARD INTERNALS */
+.card-header-row { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; }
+.hotel-name { font-size: 1.25rem; font-weight: 800; margin-bottom: 3px; }
+.hotel-subtitle { color: var(--muted); font-size: 0.85rem; }
+.card-info-right { font-size: 0.85rem; text-align: right; }
+.card-footer-row { margin-top: 10px; padding-top: 10px; border-top: 1px solid #F0EDE8; font-size: 0.83rem; display: flex; gap: 20px; flex-wrap: wrap; color: var(--muted); }
+
+/* FOOTNOTE */
+.footnote { font-size: 0.78rem; color: var(--muted); margin-top: 8px; }
+
+/* NOTE SPACING MODIFIER */
+.note-mb { margin-bottom: 12px; }
+
+/* CARD SUBHEADING + BODY LIST */
+.card-subheading { font-size: 0.88rem; font-weight: 700; margin-bottom: 8px; }
+.body-list { padding-left: 18px; font-size: 0.84rem; line-height: 1.85; }
+
+/* LUGGAGE SUBTITLE (small inside h3) */
+.lug-subtitle { font-size: 0.72rem; font-weight: 400; color: var(--muted); }
+
+/* LUGGAGE LIST ITEM MODIFIERS */
+.li-muted { color: var(--muted); font-size: 0.8rem; }
+.li-warn { color: var(--hk-red); font-weight: 600; font-size: 0.83rem; }
+
+/* FOOTER */
+.footer { text-align: center; padding: 32px 0 24px; color: var(--muted); font-size: 0.78rem; border-top: 1px solid #E0DDD8; margin-top: 12px; }
+.footer-sub { margin-top: 4px; }
+
+/* PRINT */
+@media print {
+  body { background: white; }
+  .cover { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .summary-box { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  details.day { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-flag">🇭🇰</div>
+  <h1 class="cover-title">香港旅行のしおり</h1>
+  <p class="cover-subtitle">2026年5月12日（火）〜 5月16日（土）・4泊5日</p>
+  <div class="cover-chips">
+    <div class="cover-chip"><strong>同行者</strong>夫婦2人</div>
+    <div class="cover-chip"><strong>拠点</strong>TUVE Hotel・天后</div>
+    <div class="cover-chip"><strong>往路</strong>UO629 5/12 02:20 HND→HKG</div>
+    <div class="cover-chip"><strong>復路</strong>UO622 5/16 17:35 HKG→HND</div>
+    <div class="cover-chip"><strong>マカオ</strong>5/13 TurboJET日帰り</div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- SUMMARY -->
+<div class="summary-box">
+  <h3>旅行概要</h3>
+  <div class="summary-grid">
+    <div class="summary-item"><strong>期間</strong>2026/05/12(火)〜05/16(土)</div>
+    <div class="summary-item"><strong>泊数</strong>4泊5日</div>
+    <div class="summary-item"><strong>ホテル</strong>TUVE Hotel（銅鑼灣・天后）</div>
+    <div class="summary-item"><strong>往路便</strong>UO629 02:20発→06:00着</div>
+    <div class="summary-item"><strong>復路便</strong>UO622 17:35発→22:55着</div>
+    <div class="summary-item"><strong>天気方針</strong>5/12のみ晴→屋外集中投入</div>
+  </div>
+</div>
+
+<!-- FLIGHTS -->
+<div class="section">
+  <h2 class="section-title">✈️ フライト情報</h2>
+  <div class="grid-2">
+    <div class="flight-card">
+      <div class="flight-header"><span>往路 UO629</span><span>2026.05.12（火）</span></div>
+      <div class="flight-body">
+        <div class="flight-route">
+          <div><div class="flight-ap">HND</div><div class="flight-time">02:20 発</div></div>
+          <div class="flight-mid">
+            <div class="flight-line"></div>
+            <div class="flight-dur">✈ 約4時間40分</div>
+          </div>
+          <div class="text-right"><div class="flight-ap">HKG</div><div class="flight-time">06:00 着</div></div>
+        </div>
+        <div class="flight-info">
+          <div class="fi"><small>便名</small>香港エクスプレス UO629</div>
+          <div class="fi"><small>座席</small>（非公開）</div>
+          <div class="fi"><small>受託手荷物</small>妻 20kg ／ 夫 0kg</div>
+          <div class="fi"><small>機内持込</small>身の回り品1個のみ</div>
+          <div class="fi fi-warn"><small>⚠️ 注意</small>チェックインは5/11夜 23:20〜（出発3時間前）</div>
+        </div>
+      </div>
+    </div>
+    <div class="flight-card">
+      <div class="flight-header"><span>復路 UO622</span><span>2026.05.16（土）</span></div>
+      <div class="flight-body">
+        <div class="flight-route">
+          <div><div class="flight-ap">HKG</div><div class="flight-time">17:35 発</div></div>
+          <div class="flight-mid">
+            <div class="flight-line"></div>
+            <div class="flight-dur">✈ 約5時間20分</div>
+          </div>
+          <div class="text-right"><div class="flight-ap">HND</div><div class="flight-time">22:55 着</div></div>
+        </div>
+        <div class="flight-info">
+          <div class="fi"><small>便名</small>香港エクスプレス UO622</div>
+          <div class="fi"><small>座席</small>（非公開）</div>
+          <div class="fi"><small>受託手荷物</small>妻 20kg ／ 夫 0kg</div>
+          <div class="fi"><small>機内持込</small>身の回り品1個のみ</div>
+          <div class="fi fi-warn"><small>⚠️ 注意</small>チェックイン締切16:35 ／ 受託締切16:50 ／ 空港着目標16:00</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HOTEL -->
+<div class="section">
+  <h2 class="section-title">🏨 ホテル</h2>
+  <div class="card">
+    <div class="card-header-row">
+      <div>
+        <h3 class="hotel-name">TUVE Hotel</h3>
+        <p class="hotel-subtitle">銅鑼灣清風街16号 ／ MTR港島線・天后駅 A1出口 徒歩約3分</p>
+      </div>
+      <div class="card-info-right">
+        <div><strong>CI:</strong> 5/12（火）15:00〜</div>
+        <div><strong>CO:</strong> 5/16（土）〜12:00</div>
+      </div>
+    </div>
+    <div class="card-footer-row">
+      <span>✅ 24時間フロント</span>
+      <span>✅ CI前後の荷物預かり可</span>
+      <span>⚡ 5/12は14:00早めCI要交渉</span>
+    </div>
+  </div>
+</div>
+
+<!-- WEATHER -->
+<div class="section">
+  <h2 class="section-title">🌤 天気予報（2026-05-09取得）</h2>
+  <div class="weather-row">
+    <div class="wcard good">
+      <div class="wdate">5/12（火）</div>
+      <div class="wicon">⛅</div>
+      <div class="wdesc">大体曇り</div>
+      <div class="wtemp">31℃ / 25℃</div>
+      <div class="wrain">☔ 昼8% 夜24%</div>
+    </div>
+    <div class="wcard caution">
+      <div class="wdate">5/13（水）</div>
+      <div class="wicon">🌦</div>
+      <div class="wdesc">にわか雨→雨</div>
+      <div class="wtemp">30℃ / 26℃</div>
+      <div class="wrain">☔ 昼37% 夜48%</div>
+    </div>
+    <div class="wcard bad">
+      <div class="wdate">5/14（木）</div>
+      <div class="wicon">⛈</div>
+      <div class="wdesc">雷雨</div>
+      <div class="wtemp">28℃ / 25℃</div>
+      <div class="wrain">☔ 昼78% 夜76%</div>
+    </div>
+    <div class="wcard bad">
+      <div class="wdate">5/15（金）</div>
+      <div class="wicon">⛈</div>
+      <div class="wdesc">雷雨→雨</div>
+      <div class="wtemp">27℃ / 25℃</div>
+      <div class="wrain">☔ 昼74% 夜65%</div>
+    </div>
+    <div class="wcard bad">
+      <div class="wdate">5/16（土）</div>
+      <div class="wicon">🌩</div>
+      <div class="wdesc">雷雨→にわか雨</div>
+      <div class="wtemp">27℃ / 24℃</div>
+      <div class="wrain">☔ 昼69% 夜50%</div>
+    </div>
+  </div>
+  <p class="footnote">※ 5/12が唯一の好天日。屋外スポット・夜景・オープントップバスを初日に集中投入</p>
+</div>
+
+<!-- ITINERARY -->
+<div class="section">
+  <h2 class="section-title">📅 5日間の旅程</h2>
+
+  <!-- DAY 1 -->
+  <details class="day" open>
+    <summary>
+      <div class="dbadge good">5/12<br>Day1</div>
+      <div class="dhead">
+        <div class="dhead-date">5月12日（火）— 到着日・晴天集中投入デー</div>
+        <div class="dhead-concept">九龍ループ → 仮眠 → 怪獸大廈 → ピーク夜景 → オープントップバス</div>
+      </div>
+      <div class="dwbadge good">⛅ 31℃ 降水8%</div>
+      <div class="dchev">▼</div>
+    </summary>
+    <div class="dcontent">
+      <table class="tbl">
+        <thead><tr><th>時刻</th><th>内容</th><th>備考</th></tr></thead>
+        <tbody>
+          <tr><td>06:00</td><td>HKG 着陸</td><td>UO629</td></tr>
+          <tr><td>06:15–07:15</td><td>入境審査・受託受取・税関</td><td>早朝便集中で30分混雑見込</td></tr>
+          <tr><td>07:15</td><td><strong>オクトパス購入／チャージ HK$200/人</strong></td><td>MTRカウンター or 7-Eleven</td></tr>
+          <tr><td>07:30</td><td><strong>空港朝食: 翠華餐廳 Tsui Wah</strong>（到着ロビー）</td><td>ミルクティー＋サテビーフ麺で香港初食</td></tr>
+          <tr><td>08:15</td><td><strong>A21バス乗車</strong>（HKG → 旺角）</td><td>HK$33/人・65〜80分</td></tr>
+          <tr><td>09:30</td><td><strong>旺角着 → スーツケース預け</strong>（LuggageHero/Bounce）</td><td>事前予約必須・HK$60〜80/個</td></tr>
+          <tr><td>09:45</td><td>MTR 旺角 →（觀塘線）→ 黄大仙</td><td>約10分</td></tr>
+          <tr><td>10:00–10:50</td><td><strong>黄大仙寺</strong>（参拝・おみくじ）</td><td>屋根付き参拝スペース多数・小雨可</td></tr>
+          <tr><td>10:55</td><td>MTR 黄大仙 → 彩虹（1駅3分）</td><td></td></tr>
+          <tr><td>11:00–11:35</td><td><strong>彩虹邨 Choi Hung Estate</strong>（バスケコート上の階段から撮影）</td><td>2028年再開発予定・屋外好天必須</td></tr>
+          <tr><td>11:40</td><td>MTR 彩虹 → 旺角 →（荃灣線）→ 深水埗</td><td>約20分</td></tr>
+          <tr><td>12:00–13:00</td><td><strong>鴨寮街散策＋深水埗で昼食</strong></td><td>添好運深水埗本店（点心1つ星）or 劉森記麵家</td></tr>
+          <tr><td>13:15</td><td>MTR 深水埗 → 旺角（1駅）→ スーツケース引取</td><td></td></tr>
+          <tr><td>13:30</td><td>MTR 旺角 → 金鐘 → 天后</td><td>約25分</td></tr>
+          <tr><td>14:00</td><td><strong>TUVE Hotel 着・早めCI交渉</strong>（公式CI 15:00）</td><td>14:00入室を依頼</td></tr>
+          <tr><td>14:00–16:30</td><td><strong>部屋で仮眠（目標1.5〜2時間）</strong></td><td>今日最大の体力温存ポイント</td></tr>
+          <tr><td>16:30</td><td>MTR 天后 → 太古（3駅・10分）</td><td></td></tr>
+          <tr><td>16:40–17:20</td><td><strong>怪獸大廈 Monster Building</strong> ＋ <strong>% Arabica Quarry Bay</strong></td><td>コーヒー絶品店① ／ テイクアウト</td></tr>
+          <tr><td>17:20</td><td>MTR 太古 → 中環（約15分）</td><td></td></tr>
+          <tr><td>17:40</td><td><strong>Peak Tram 中環山下駅</strong>（要事前予約）</td><td></td></tr>
+          <tr><td>18:00–19:30</td><td><strong>ビクトリア・ピーク（Sky Terrace 428）</strong></td><td>日没18:50・夜景開始19:20頃</td></tr>
+          <tr><td>19:45</td><td>Peak Tram で中環下山</td><td></td></tr>
+          <tr><td>20:00</td><td><strong>ディナー: 一樂燒鵝</strong>（中環士丹利街）</td><td>ミシュラン1つ星・カリッと皮のローストグース</td></tr>
+          <tr><td>21:15</td><td>中環6号埠頭へ徒歩</td><td></td></tr>
+          <tr><td>21:30</td><td><strong>オープントップバス H2K ナイトコース</strong>（中環6号埠頭発・約50分）</td><td>21:30 or 22:00回・HK$50前後</td></tr>
+          <tr><td>22:30</td><td>中環着 → タクシーでTUVE（HK$80前後）</td><td></td></tr>
+          <tr><td>23:30</td><td>就寝</td><td>5/13は06:30起床</td></tr>
+        </tbody>
+      </table>
+      <div class="note skip">
+        <h4>省略ポイント（疲労・進行遅延時）</h4>
+        <ul>
+          <li><strong>鴨寮街</strong> → 深水埗で昼食のみにして撤退可</li>
+          <li><strong>彩虹邨</strong> → 雨・時間不足時はスキップ。黄大仙＋鴨寮街の2点に絞る</li>
+          <li><strong>怪獸大廈 + % Arabica</strong> → 写真のみにしてカフェ省略可</li>
+          <li><strong>オープントップバス</strong> → ピーク夜景で充分なら省略可</li>
+        </ul>
+      </div>
+      <div class="note rain">
+        <h4>☔ 雨天になった場合</h4>
+        <ul>
+          <li>彩虹邨・鴨寮街は中止（屋外依存）</li>
+          <li>黄大仙寺のみ実行可（屋根付き参拝スペース多数）</li>
+          <li>ピーク・オープントップバスは中止 → <strong>Mott 32 → Bar Leone → Tai Kwun</strong> に振替</li>
+          <li>スーツケース戦略：旺角預けは使わずA11バスでTUVE直行</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <!-- DAY 2 -->
+  <details class="day">
+    <summary>
+      <div class="dbadge caution">5/13<br>Day2</div>
+      <div class="dhead">
+        <div class="dhead-date">5月13日（水）— マカオ日帰り</div>
+        <div class="dhead-concept">TurboJET → セナド広場 → A Lorcha → タイパ → ヴェネチアン</div>
+      </div>
+      <div class="dwbadge caution">🌦 30℃ 降水37〜48%</div>
+      <div class="dchev">▼</div>
+    </summary>
+    <div class="dcontent">
+      <div class="note warn note-mb">
+        <h4>⚠️ 必携・注意事項</h4>
+        <ul>
+          <li><strong>パスポート必携</strong>（マカオは別税関）</li>
+          <li>A Lorcha 月曜定休だが<strong>水曜は営業</strong>。念のため出発前に再確認</li>
+        </ul>
+      </div>
+      <table class="tbl">
+        <thead><tr><th>時刻</th><th>内容</th><th>備考</th></tr></thead>
+        <tbody>
+          <tr><td>07:00</td><td>ホテル朝食（軽め）or 持参パン</td><td>早出のため簡素に</td></tr>
+          <tr><td>07:30</td><td>MTR 天后 → 上環（港島線・15分）</td><td></td></tr>
+          <tr><td>08:00</td><td><strong>TurboJET 上環フェリーターミナル発</strong></td><td>約1時間・往復HK$320前後</td></tr>
+          <tr><td>09:00</td><td>マカオ外港着 → バス/タクシーで半島中心部へ</td><td></td></tr>
+          <tr><td>09:30</td><td><strong>セナド広場〜聖ポール天主堂跡</strong></td><td>屋根付きアーケード多く小雨可</td></tr>
+          <tr><td>11:00</td><td><strong>マーガレット・カフェ・エ・ナタ</strong></td><td>元祖マカオ式エッグタルト</td></tr>
+          <tr><td>12:30</td><td><strong>昼食: A Lorcha</strong>（媽閣廟近く・要予約）</td><td>ポルトガル料理・シーフードライス・アサリ炒め</td></tr>
+          <tr><td>14:30</td><td><strong>タイパ・ヴィレッジ（官也街）</strong></td><td>パステルカラー教会・お土産通り</td></tr>
+          <tr><td>16:00</td><td><strong>ヴェネチアン・マカオ建築見学</strong></td><td>完全屋内・運河とゴンドラ・雨宿りに最適</td></tr>
+          <tr><td>17:30</td><td>フェリーターミナルへ移動</td><td>タイパフェリーターミナル使用も可</td></tr>
+          <tr><td>18:30</td><td><strong>マカオ → 香港 TurboJET</strong></td><td></td></tr>
+          <tr><td>19:30</td><td>上環着 → MTR で天后へ</td><td></td></tr>
+          <tr><td>20:00</td><td><strong>夕食: 棋哥燒鵝</strong>（天后徒歩圏・ローカル燒鵝）</td><td>軽め・ホテル近場で疲労を抑える</td></tr>
+          <tr><td>21:30</td><td>ホテル戻り</td><td></td></tr>
+        </tbody>
+      </table>
+      <div class="note skip">
+        <h4>省略ポイント</h4>
+        <ul>
+          <li><strong>タイパ・ヴィレッジ</strong> → 雨が強ければ省略してヴェネチアン直行</li>
+          <li><strong>マーガレット・カフェ</strong> → 朝食兼ねて聖ポール後すぐに食べてもOK</li>
+        </ul>
+      </div>
+      <div class="note rain">
+        <h4>☔ 雨が予想以上に強い場合</h4>
+        <ul>
+          <li>マカオ中止 → <strong>5/14の屋内プランを前倒し</strong>（M+ → Mott 32 → Bar Leone）</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <!-- DAY 3 -->
+  <details class="day">
+    <summary>
+      <div class="dbadge bad">5/14<br>Day3</div>
+      <div class="dhead">
+        <div class="dhead-date">5月14日（木）— 完全屋内デー</div>
+        <div class="dhead-concept">M+ミュージアム → ワンタン麺 → Leica → 蓮香樓飲茶 → Bar Leone</div>
+      </div>
+      <div class="dwbadge bad">⛈ 28℃ 降水78%</div>
+      <div class="dchev">▼</div>
+    </summary>
+    <div class="dcontent">
+      <table class="tbl">
+        <thead><tr><th>時刻</th><th>内容</th><th>備考</th></tr></thead>
+        <tbody>
+          <tr><td>08:30</td><td><strong>朝食: 金鳳茶餐廳</strong>（銅鑼灣・ホテル徒歩10分）</td><td>名物アイスミルクティー・菠蘿油</td></tr>
+          <tr><td>10:00</td><td>MTR 天后 → 中環 → 九龍站 → 西九文化区へ</td><td></td></tr>
+          <tr><td>10:30–13:00</td><td><strong>M+ ミュージアム（西九文化区）</strong></td><td>全屋内・香港随一の現代視覚文化博物館</td></tr>
+          <tr><td>13:30</td><td><strong>昼食: 沾仔記</strong>（中環 Wellington St）</td><td>海老ワンタン麺の老舗・向かいに麥奀あり食べ比べ可</td></tr>
+          <tr><td>14:30</td><td>MTR 中環 → 銅鑼灣</td><td></td></tr>
+          <tr><td>15:00–16:30</td><td><strong>Leica Store Causeway Bay + Cafe Leitz</strong>（白沙道12号）</td><td>コーヒー絶品店②・エスプレッソライムトニック</td></tr>
+          <tr><td>16:30–17:30</td><td><strong>〔オプション〕萬興製衣で採寸・発注</strong></td><td>仕上がり日数事前確認済の場合のみ実行</td></tr>
+          <tr><td>17:30–19:00</td><td><strong>SOGO銅鑼灣 / Times Square</strong></td><td>SOGO感謝祭(5/1〜17)期間中・完全屋内</td></tr>
+          <tr><td>19:30</td><td>MTR 銅鑼灣 → 中環</td><td></td></tr>
+          <tr><td>20:00</td><td><strong>ディナー: 蓮香樓 Lin Heung Tea House</strong>（中環威靈頓街160号）</td><td>1930年代創業ワゴン式飲茶・予約不可・並び前提</td></tr>
+          <tr><td>21:30</td><td><strong>Bar Leone</strong>（中環 Bridges St 15・徒歩5分）</td><td>世界1位バー・予約不可・並ぶ前提</td></tr>
+          <tr><td>23:00</td><td>タクシーでホテル戻り</td><td></td></tr>
+        </tbody>
+      </table>
+      <div class="note skip">
+        <h4>省略ポイント</h4>
+        <ul>
+          <li><strong>萬興製衣</strong> → 事前確認で受取不可なら省略（旅程に最初から組み込まない）</li>
+          <li><strong>SOGO/Times Square</strong> → 疲労時は省略してホテルで休憩</li>
+          <li><strong>Bar Leone</strong> → 並び1時間以上なら翌日持越し。代替: The Old Man / Coa（ともに中環）</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <!-- DAY 4 -->
+  <details class="day">
+    <summary>
+      <div class="dbadge bad">5/15<br>Day4</div>
+      <div class="dhead">
+        <div class="dhead-date">5月15日（金）— 街歩き＋博物館</div>
+        <div class="dhead-concept">蘭芳園 → エッグタルト → Tai Kwun → PMQ → 香港歴史博物館 → スターフェリー</div>
+      </div>
+      <div class="dwbadge bad">⛈ 27℃ 降水65〜74%</div>
+      <div class="dchev">▼</div>
+    </summary>
+    <div class="dcontent">
+      <table class="tbl">
+        <thead><tr><th>時刻</th><th>内容</th><th>備考</th></tr></thead>
+        <tbody>
+          <tr><td>07:30</td><td>MTR 天后 → 中環</td><td></td></tr>
+          <tr><td>08:00</td><td><strong>朝食: 蘭芳園 中環本店</strong>（結志街2号）</td><td>シルクストッキングミルクティー発祥・激混み・8:00前到着推奨</td></tr>
+          <tr><td>09:20–09:35</td><td><strong>泰昌餅家（擺花街）でエッグタルトテイクアウト</strong></td><td>ポルトガル総督絶賛のカスタード系・蘭芳園から徒歩5分</td></tr>
+          <tr><td>09:30–11:00</td><td><strong>ハリウッドロード散策 → Tai Kwun 大館</strong></td><td>旧中央警察署・無料・全屋内ギャラリー・雨でも快適</td></tr>
+          <tr><td>11:00–12:30</td><td><strong>PMQ 元創方</strong></td><td>クリエイティブ複合施設・ショップ＋カフェ</td></tr>
+          <tr><td>12:30</td><td><strong>コーヒー絶品店③: NOC Coffee Co.</strong> or <strong>Cupping Room</strong></td><td>世界大会受賞バリスタ系列・上環/中環</td></tr>
+          <tr><td>13:30</td><td>昼食: 中環エリアで軽め（茶餐廳 or 街フード）</td><td></td></tr>
+          <tr><td>14:30</td><td>MTR 中環 → 尖沙咀</td><td></td></tr>
+          <tr><td>15:00–17:30</td><td><strong>香港歴史博物館</strong>（尖沙咀）</td><td>古代〜1997年返還まで網羅・雨の日定番</td></tr>
+          <tr><td>17:30</td><td><strong>スターフェリー: 尖沙咀 → 湾仔/中環</strong></td><td>HK$5・ビクトリアハーバー夕暮れクロス・屋根付き客室あり</td></tr>
+          <tr><td>18:00</td><td>MTRで湾仔へ</td><td></td></tr>
+          <tr><td>19:00</td><td><strong>ディナー: 甘牌燒鵝 Kam's Roast Goose</strong>（湾仔）</td><td>ミシュラン1つ星・潤いのあるローストグース</td></tr>
+          <tr><td>20:30</td><td>MTR 湾仔 → 天后</td><td></td></tr>
+          <tr><td>21:00</td><td><strong>The Coffee Academics</strong>（銅鑼灣・24時近くまで）</td><td>雨夜のんびりデザート</td></tr>
+          <tr><td>22:30</td><td>ホテル戻り</td><td></td></tr>
+        </tbody>
+      </table>
+      <div class="note skip">
+        <h4>省略ポイント</h4>
+        <ul>
+          <li><strong>キャットストリート 摩羅街</strong>（ハリウッドロード途中）→ 雨なら丸ごと省略</li>
+          <li><strong>The Coffee Academics</strong> → 疲労時はホテル直行</li>
+          <li><strong>PMQ</strong> → 時間が押したらTai Kwun滞在を厚くしてカット</li>
+          <li><strong>甘牌燒鵝</strong> → 5/12に一樂を食べた場合、別ジャンル（廟街夜市・華姐清湯腩）へ振替も可</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <!-- DAY 5 -->
+  <details class="day">
+    <summary>
+      <div class="dbadge bad">5/16<br>Day5</div>
+      <div class="dhead">
+        <div class="dhead-date">5月16日（土）— 出発日</div>
+        <div class="dhead-concept">朝の銅鑼灣 → CO12:00厳守 → A11バス14:30 → HKG → UO622</div>
+      </div>
+      <div class="dwbadge bad">🌩 27℃ 降水69%</div>
+      <div class="dchev">▼</div>
+    </summary>
+    <div class="dcontent">
+      <div class="note warn note-mb">
+        <h4>🚨 時間厳守ライン</h4>
+        <ul>
+          <li><strong>12:00</strong> チェックアウト厳守</li>
+          <li><strong>14:30</strong> A11バス乗車厳守</li>
+          <li><strong>16:00</strong> HKG到着目標</li>
+          <li><strong>16:35</strong> UO622 チェックイン締切</li>
+        </ul>
+      </div>
+      <table class="tbl">
+        <thead><tr><th>時刻</th><th>内容</th><th>備考</th></tr></thead>
+        <tbody>
+          <tr><td>07:00</td><td>起床・最終パッキング</td><td></td></tr>
+          <tr><td>08:00</td><td><strong>朝食: 金鳳茶餐廳</strong>（最後の菠蘿油＋ミルクティー）</td><td>代替: 檀島咖啡餅店（湾仔・MTR1駅）</td></tr>
+          <tr><td>09:30–11:00</td><td><strong>天后廟参拝 + ヴィクトリア公園 軽散歩</strong></td><td>雨なら <strong>SOGO銅鑼灣で土産仕上げ</strong>に切替</td></tr>
+          <tr><td>11:30</td><td>ホテル戻り・最終チェック</td><td></td></tr>
+          <tr><td>12:00</td><td><strong>チェックアウト（厳守）</strong> → スーツケースをフロントに再預け</td><td></td></tr>
+          <tr><td>12:30</td><td><strong>ランチ: 稻香 Tao Heung（銅鑼灣）</strong></td><td>気軽な飲茶チェーン・時短に最適</td></tr>
+          <tr><td>13:30–14:15</td><td><strong>SOGO銅鑼灣で最終土産</strong>（茶葉・菓子・コスメ）</td><td>重い物は妻の受託に集約</td></tr>
+          <tr><td>14:15</td><td>ホテル戻り → スーツケース受取</td><td></td></tr>
+          <tr><td>14:30</td><td><strong>A11バス乗車</strong>（軒尼詩道 or 維多利亞公園付近）</td><td>HK$41.9/人・所要70〜90分</td></tr>
+          <tr><td>16:00</td><td>HKG到着</td><td></td></tr>
+          <tr><td>16:15</td><td><strong>UOカウンターで妻の受託預け</strong></td><td>チェックイン締切16:35 ／ 受託締切16:50</td></tr>
+          <tr><td>16:45</td><td>保安検査・出国審査</td><td></td></tr>
+          <tr><td>17:35</td><td><strong>UO622 離陸</strong></td><td>22:55 HND着</td></tr>
+        </tbody>
+      </table>
+      <div class="note warn">
+        <h4>復路の交通変更条件</h4>
+        <ul>
+          <li><strong>第一候補:</strong> A11バス（14:30発・銅鑼灣）→ HK$41.9/人・70〜90分</li>
+          <li><strong>A11遅延 or 雷雨強い場合:</strong> MTR + Airport Express（天后→香港駅→HKG・45分・HK$125/人）</li>
+          <li><strong>どちらも困難な場合:</strong> タクシー（HK$350〜400・40〜50分）</li>
+        </ul>
+      </div>
+      <div class="note skip">
+        <h4>香港土産の集約方針</h4>
+        <ul>
+          <li>夫は機内持込0kg → 液体・かさばる物は買わない・持たない</li>
+          <li>すべて<strong>妻の受託（20kg）に集約</strong>：茶葉・菓子・コスメ</li>
+          <li>出発時15kg目安 → <strong>最大5kgまで</strong>土産で増やせる</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+</div>
+
+<!-- COFFEE -->
+<div class="section">
+  <h2 class="section-title">☕ コーヒー絶品店 3軒</h2>
+  <div class="coffee-item">
+    <div class="cnum">1</div>
+    <div class="cinfo">
+      <h4>% Arabica Quarry Bay</h4>
+      <p>5/12夕方・怪獸大廈隣接 ／ 撮影後にテイクアウト休憩</p>
+    </div>
+  </div>
+  <div class="coffee-item">
+    <div class="cnum">2</div>
+    <div class="cinfo">
+      <h4>Cafe Leitz by INTERVAL（Leica Store銅鑼灣内）</h4>
+      <p>5/14午後・白沙道12号 ／ Coffee Collective使用・エスプレッソライムトニック</p>
+    </div>
+  </div>
+  <div class="coffee-item">
+    <div class="cnum">3</div>
+    <div class="cinfo">
+      <h4>NOC Coffee Co. or Cupping Room Coffee Roaster</h4>
+      <p>5/15昼・上環/中環 ／ 世界大会受賞バリスタ系列</p>
+    </div>
+  </div>
+</div>
+
+<!-- HIGHLIGHTS -->
+<div class="section">
+  <h2 class="section-title">🌟 5日間のハイライト</h2>
+  <div class="card card-flush">
+    <table class="gtbl red">
+      <thead><tr><th>カテゴリ</th><th>内容</th><th>日程</th></tr></thead>
+      <tbody>
+        <tr><td>ピーク夜景</td><td>Peak Tram + Sky Terrace 428</td><td>5/12夜</td></tr>
+        <tr><td>オープントップバス</td><td>H2K ナイトコース（中環6号埠頭発）</td><td>5/12夜</td></tr>
+        <tr><td>スターフェリー</td><td>尖沙咀 → 湾仔/中環</td><td>5/15夕方</td></tr>
+        <tr><td>ローストグース</td><td>一樂燒鵝（中環・ミシュラン1つ星・カリッと派）</td><td>5/12夜</td></tr>
+        <tr><td>エッグタルト</td><td>泰昌餅家（中環擺花街）</td><td>5/15朝</td></tr>
+        <tr><td>ワンタン麺</td><td>沾仔記（向かいに麥奀・食べ比べ可）</td><td>5/14昼</td></tr>
+        <tr><td>ワゴン飲茶</td><td>蓮香樓（1930年代創業・予約不可）</td><td>5/14夜</td></tr>
+        <tr><td>世界1位バー</td><td>Bar Leone（中環・予約不可・並び前提）</td><td>5/14夜</td></tr>
+        <tr><td>マカオ日帰り</td><td>TurboJET + A Lorcha（ポルトガル料理）</td><td>5/13</td></tr>
+        <tr><td>ピンクの団地</td><td>彩虹邨（2028年再開発予定・今回必見）</td><td>5/12午前</td></tr>
+        <tr><td>怪獸大廈</td><td>Monster Building（太古・MTR3駅）</td><td>5/12夕方</td></tr>
+        <tr><td>現代美術館</td><td>M+ ミュージアム（西九文化区）</td><td>5/14午前</td></tr>
+        <tr><td>Leica Store</td><td>Causeway Bay + Cafe Leitz</td><td>5/14午後</td></tr>
+        <tr><td>歴史博物館</td><td>香港歴史博物館（尖沙咀）</td><td>5/15午後</td></tr>
+        <tr><td>オーダーシャツ</td><td>萬興製衣（仕上がり日数次第・△オプション）</td><td>5/14</td></tr>
+        <tr><td>黄大仙寺</td><td>参拝・おみくじ（九龍・早朝）</td><td>5/12午前</td></tr>
+        <tr><td>鴨寮街</td><td>レトロ電子市場・深水埗散策</td><td>5/12午前</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- TRANSPORT -->
+<div class="section">
+  <h2 class="section-title">🚇 移動・交通ガイド</h2>
+  <div class="card card-flush">
+    <table class="gtbl dark">
+      <thead><tr><th>シーン</th><th>推奨手段</th><th>料金目安</th></tr></thead>
+      <tbody>
+        <tr><td>MTR沿線（中環・尖沙咀・旺角・銅鑼灣）</td><td>MTR</td><td>HK$5〜15</td></tr>
+        <tr><td>短距離（天后〜銅鑼灣など2km以内）</td><td>徒歩 or トラム（叮叮車）</td><td>トラム HK$3均一</td></tr>
+        <tr><td>ビクトリア・ピーク</td><td>Peak Tram（要事前予約）</td><td>—</td></tr>
+        <tr><td>雨天時・夜遅く・荷物多い時</td><td>タクシー（赤）</td><td>初乗りHK$29・市内HK$50〜100</td></tr>
+        <tr><td>九龍 ↔ HK島（観光）</td><td>スターフェリー</td><td>HK$5前後・8分</td></tr>
+        <tr><td>空港 → 銅鑼灣（往路・荷物あり）</td><td>A21バス（第一候補）</td><td>HK$33/人・65〜80分</td></tr>
+        <tr><td>銅鑼灣 → 空港（復路）</td><td>A11バス（第一候補）</td><td>HK$41.9/人・70〜90分</td></tr>
+        <tr><td>空港 ↔ 市内（速さ優先）</td><td>Airport Express → 中環/天后</td><td>HK$120+5/人・40〜45分</td></tr>
+        <tr><td>香港 ↔ マカオ</td><td>TurboJET フェリー</td><td>往復HK$320前後・約1時間</td></tr>
+        <tr><td>緊急時・タクシー（空港↔銅鑼灣）</td><td>赤タクシー or Uber</td><td>HK$350〜400・40〜50分</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card">
+    <p class="card-subheading">🐙 オクトパスカード（八達通）運用</p>
+    <ul class="body-list">
+      <li>初日チャージ <strong>HK$200/人</strong>。1〜2回 HK$100 ずつ追加チャージで5日間カバー可</li>
+      <li>MTR・バス・スターフェリー・コンビニ全てこれ1枚で完結</li>
+      <li>残高は帰国前にMTRカウンターで払い戻し可（手数料HK$11）</li>
+      <li>Apple Pay 八達通の事前登録でも利用可</li>
+    </ul>
+  </div>
+</div>
+
+<!-- LUGGAGE -->
+<div class="section">
+  <h2 class="section-title">🧳 荷物ガイド</h2>
+  <div class="grid-2">
+    <div class="lug">
+      <h3>夫 — 身の回り品1個（リュック）<br><small class="lug-subtitle">45×36×20cm 以内・機内持込NG</small></h3>
+      <ul>
+        <li>パスポート・財布・スマホ・AirPods</li>
+        <li>モバイルバッテリー（10000mAh・100Wh以下）</li>
+        <li>充電ケーブル（USB-C）</li>
+        <li>常備薬（少量）</li>
+        <li>着替え1セット（Tシャツ・下着・靴下）</li>
+        <li>折りたたみ傘（小型）</li>
+        <li class="li-muted">※液体物は100ml以下・透明袋必須</li>
+      </ul>
+    </div>
+    <div class="lug">
+      <h3>妻 — 受託手荷物（20kg）<br><small class="lug-subtitle">出発時15kg目安・土産5kg余裕を残す</small></h3>
+      <ul>
+        <li>二人分の衣類（4泊分＋雨用予備）</li>
+        <li>化粧品・スキンケア（液体物本体）</li>
+        <li>ドライヤー（ホテル備付確認次第）</li>
+        <li>香港土産（茶葉・菓子・コスメなど）</li>
+        <li>夫の液体・かさばる物もここに集約</li>
+        <li class="li-warn">⚠️ 帰国時に最大5kg増を見込み余裕を残す</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- KEY NUMBERS -->
+<div class="section">
+  <h2 class="section-title">🔢 キーナンバー早見表</h2>
+  <div class="knums">
+    <div class="knum"><span class="knum-label">自宅出発目標（5/11）</span><span class="knum-value">21:30</span></div>
+    <div class="knum"><span class="knum-label">HND到着目標</span><span class="knum-value">23:00</span></div>
+    <div class="knum"><span class="knum-label">UO629 チェックイン開始</span><span class="knum-value">23:20</span></div>
+    <div class="knum"><span class="knum-label">UO629 出発</span><span class="knum-value">5/12 02:20</span></div>
+    <div class="knum"><span class="knum-label">UO629 HKG到着</span><span class="knum-value">5/12 06:00</span></div>
+    <div class="knum"><span class="knum-label">ホテル荷物預け目標</span><span class="knum-value">5/12 09:00</span></div>
+    <div class="knum"><span class="knum-label">5/16 チェックアウト</span><span class="knum-value">12:00 厳守</span></div>
+    <div class="knum"><span class="knum-label">空港向けバス出発</span><span class="knum-value">14:30 厳守</span></div>
+    <div class="knum"><span class="knum-label">空港到着目標</span><span class="knum-value">16:00</span></div>
+    <div class="knum"><span class="knum-label">UO622 チェックイン締切</span><span class="knum-value">16:35</span></div>
+    <div class="knum"><span class="knum-label">妻の受託締切</span><span class="knum-value">16:50</span></div>
+    <div class="knum"><span class="knum-label">UO622 出発</span><span class="knum-value">17:35</span></div>
+    <div class="knum"><span class="knum-label">A11バス（銅鑼灣→空港）</span><span class="knum-value">HK$41.9/人</span></div>
+    <div class="knum"><span class="knum-label">Airport Express</span><span class="knum-value">HK$120/人</span></div>
+    <div class="knum"><span class="knum-label">タクシー（空港↔銅鑼灣）</span><span class="knum-value">HK$350〜400</span></div>
+  </div>
+</div>
+
+<!-- RISK -->
+<div class="section">
+  <h2 class="section-title">⚠️ リスク対応メモ</h2>
+  <div class="card card-flush">
+    <table class="gtbl slate">
+      <thead><tr><th>リスク</th><th>対応</th></tr></thead>
+      <tbody>
+        <tr><td>5/11 京急遅延・終電逃し</td><td>タクシーに即切替。自宅 → HND第3T 直行・約3,500円</td></tr>
+        <tr><td>HKG早朝入境混雑（6:00便集中）</td><td>バッファ90分を見込み・A21始発7:30ごろ乗車前提</td></tr>
+        <tr><td>5/14〜16 雷雨で交通遅延</td><td>復路はバスよりMTR+Airport Expressを優先。タクシー予算HK$400を確保</td></tr>
+        <tr><td>妻の受託超過</td><td>出発前夜に体重計で計量・20kg厳守。超過なら夫の身の回り品に分散</td></tr>
+        <tr><td>ホテル早朝荷物預け不可</td><td>銅鑼灣MTR駅近くのLuggageHero/Nannybag（HK$30〜/日）を使用</td></tr>
+        <tr><td>復路UO622遅延・欠航</td><td>香港エクスプレスアプリで通知ON。帰宅手段（タクシーorNearMe 1,980円/人）を事前イメージ</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- COMMON ITEMS -->
+<div class="section">
+  <h2 class="section-title">🎒 全日程 共通の持ち物</h2>
+  <div class="items-grid">
+    <div>🐙 オクトパスカード（HK$200〜チャージ）</div>
+    <div>☂️ 折りたたみ傘（5/13以降毎日携帯）</div>
+    <div>🧥 薄手レインジャケット</div>
+    <div>🛂 パスポート・予約バウチャー（紙+スクショ）</div>
+    <div>💵 予備現金（HK$500程度）</div>
+    <div>🔋 モバイルバッテリー・充電ケーブル</div>
+    <div>💊 常備薬（胃薬・痛み止め・絆創膏）</div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>🇭🇰 香港旅行のしおり 2026.05.12–16</p>
+  <p class="footer-sub">作成日: 2026-05-09</p>
+</div>
+
+</div><!-- /container -->
+
+<script>
+window.addEventListener('beforeprint', function() {
+  document.querySelectorAll('details').forEach(d => { d.open = true; });
+});
+</script>
+</body>
+</html>
