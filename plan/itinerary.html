@@ -93,20 +93,21 @@ body {
 .fi-warn { grid-column: 1/-1; background: #FFF3E0; color: #B45300; }
 
 /* WEATHER */
-.weather-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
-@media (max-width: 600px) { .weather-row { grid-template-columns: 1fr 1fr; } }
+.weather-row { display: flex; flex-direction: column; gap: 6px; }
 .wcard {
-  background: var(--card); border-radius: 10px; padding: 12px 8px;
-  text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.03); border: 1px solid var(--line); border-top: 4px solid;
+  background: var(--card); border-radius: 10px; padding: 8px 14px;
+  display: flex; align-items: center; gap: 12px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+  border: 1px solid var(--line); border-left: 4px solid;
 }
-.wcard.good { border-top-color: var(--sunny); }
-.wcard.caution { border-top-color: var(--caution); }
-.wcard.bad { border-top-color: var(--stormy); }
-.wdate { font-size: 0.78rem; color: var(--muted); }
-.wicon { font-size: 1.9rem; margin: 5px 0; }
-.wdesc { font-size: 0.75rem; font-weight: 700; }
-.wtemp { font-size: 0.82rem; color: var(--hk-red); margin-top: 3px; }
-.wrain { font-size: 0.72rem; color: var(--muted); }
+.wcard.good { border-left-color: var(--sunny); }
+.wcard.caution { border-left-color: var(--caution); }
+.wcard.bad { border-left-color: var(--stormy); }
+.wdate { font-size: 0.85rem; font-weight: 700; color: var(--dark); min-width: 70px; }
+.wicon { font-size: 1.5rem; flex-shrink: 0; }
+.wdesc { font-size: 0.82rem; font-weight: 700; flex: 1; min-width: 0; }
+.wtemp { font-size: 0.82rem; color: var(--hk-red); white-space: nowrap; }
+.wrain { font-size: 0.78rem; color: var(--muted); white-space: nowrap; }
 
 /* DAY CARDS */
 details.day {
@@ -176,13 +177,6 @@ details.day[open] .dchev { transform: rotate(180deg); }
 .gtbl.red thead { background: var(--hk-red); color: white; }
 .gtbl.dark thead { background: var(--dark); color: white; }
 .gtbl.slate thead { background: #455A64; color: white; }
-
-/* KEY NUMBERS */
-.knums { display: grid; grid-template-columns: repeat(auto-fit, minmax(195px, 1fr)); gap: 8px; }
-.knum { background: var(--card); border-radius: 8px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 1px 2px rgba(0,0,0,0.04); border: 1px solid var(--line); }
-.knum-label { font-size: 0.78rem; color: var(--muted); }
-.knum-value { font-weight: 800; color: var(--hk-red); font-size: 0.92rem; }
-.knum.gold .knum-value { color: var(--hk-gold); }
 
 /* LUGGAGE */
 .lug { background: var(--card); border-radius: 12px; padding: 16px 18px; box-shadow: 0 1px 2px rgba(0,0,0,0.04); border: 1px solid var(--line); }
@@ -557,7 +551,7 @@ details.phrase-cat .gtbl td:nth-child(3) { color: var(--muted); font-size: 0.78r
           <div class="fi"><small>座席</small>（非公開）</div>
           <div class="fi"><small>受託手荷物</small>妻 20kg ／ 夫 0kg</div>
           <div class="fi"><small>機内持込</small>夫 1個 7kg（56×36×23cm）+ 身の回り品1個</div>
-          <div class="fi fi-warn"><small>⚠️ 注意</small>チェックインは5/11夜 23:20〜（出発3時間前）</div>
+          <div class="fi fi-warn"><small>⚠️ 出発前夜（5/11）</small>21:30 自宅出発 → 23:00 HND着 → 23:20 チェックイン開始</div>
         </div>
       </div>
     </div>
@@ -713,7 +707,7 @@ details.phrase-cat .gtbl td:nth-child(3) { color: var(--muted); font-size: 0.78r
           <li>彩虹邨・鴨寮街は中止（屋外依存）</li>
           <li>黄大仙寺のみ実行可（屋根付き参拝スペース多数）</li>
           <li>ピーク・オープントップバスは中止 → <strong>Mott 32 → Bar Leone → Tai Kwun</strong> に振替</li>
-          <li>スーツケース戦略：旺角預けは使わずA11バスでTUVE直行</li>
+          <li>スーツケース戦略：旺角預けは使わずA11バスでTUVE直行（09:00目安でホテル荷物預け）</li>
         </ul>
       </div>
     </div>
@@ -954,6 +948,11 @@ details.phrase-cat .gtbl td:nth-child(3) { color: var(--muted); font-size: 0.78r
 <!-- TRANSPORT -->
 <div class="section" id="sec-transport">
   <h2 class="section-title">🚇 移動・交通ガイド</h2>
+  <div class="currency-bar">
+    <span>💱 通貨レート目安（2026年5月時点）</span>
+    <strong>1 HK$ ≈ 19〜20円</strong>
+    <span>｜ HK$100 ≈ 1,900〜2,000円 ｜ HK$1,000 ≈ 19,000〜20,000円</span>
+  </div>
   <div class="card card-flush">
     <table class="gtbl dark">
       <thead><tr><th>シーン</th><th>推奨手段</th><th>料金目安</th></tr></thead>
@@ -1010,33 +1009,6 @@ details.phrase-cat .gtbl td:nth-child(3) { color: var(--muted); font-size: 0.78r
         <li class="li-warn">⚠️ 帰国時に最大5kg増を見込み余裕を残す</li>
       </ul>
     </div>
-  </div>
-</div>
-
-<!-- KEY NUMBERS -->
-<div class="section" id="sec-keynums">
-  <h2 class="section-title">🔢 キーナンバー早見表</h2>
-  <div class="currency-bar">
-    <span>💱 通貨レート目安（2026年5月時点）</span>
-    <strong>1 HK$ ≈ 19〜20円</strong>
-    <span>｜ HK$100 ≈ 1,900〜2,000円 ｜ HK$1,000 ≈ 19,000〜20,000円</span>
-  </div>
-  <div class="knums">
-    <div class="knum"><span class="knum-label">自宅出発目標（5/11）</span><span class="knum-value">21:30</span></div>
-    <div class="knum"><span class="knum-label">HND到着目標</span><span class="knum-value">23:00</span></div>
-    <div class="knum"><span class="knum-label">UO629 チェックイン開始</span><span class="knum-value">23:20</span></div>
-    <div class="knum"><span class="knum-label">UO629 出発</span><span class="knum-value">5/12 02:20</span></div>
-    <div class="knum"><span class="knum-label">UO629 HKG到着</span><span class="knum-value">5/12 06:00</span></div>
-    <div class="knum"><span class="knum-label">ホテル荷物預け目標</span><span class="knum-value">5/12 09:00</span></div>
-    <div class="knum"><span class="knum-label">5/16 チェックアウト</span><span class="knum-value">12:00 厳守</span></div>
-    <div class="knum"><span class="knum-label">空港向けバス出発</span><span class="knum-value">14:30 厳守</span></div>
-    <div class="knum"><span class="knum-label">空港到着目標</span><span class="knum-value">16:00</span></div>
-    <div class="knum"><span class="knum-label">UO622 チェックイン締切</span><span class="knum-value">16:35</span></div>
-    <div class="knum"><span class="knum-label">妻の受託締切</span><span class="knum-value">16:50</span></div>
-    <div class="knum"><span class="knum-label">UO622 出発</span><span class="knum-value">17:35</span></div>
-    <div class="knum gold"><span class="knum-label">A11バス（銅鑼灣→空港）</span><span class="knum-value">HK$41.9 ≈ 800円</span></div>
-    <div class="knum gold"><span class="knum-label">Airport Express</span><span class="knum-value">HK$120 ≈ 2,300円</span></div>
-    <div class="knum gold"><span class="knum-label">タクシー（空港↔銅鑼灣）</span><span class="knum-value">HK$350〜400</span></div>
   </div>
 </div>
 
@@ -1245,7 +1217,6 @@ details.phrase-cat .gtbl td:nth-child(3) { color: var(--muted); font-size: 0.78r
       <a class="toc-link" href="#sec-highlights">🌟 5日間のハイライト</a>
       <a class="toc-link" href="#sec-transport">🚇 移動・交通ガイド</a>
       <a class="toc-link" href="#sec-luggage">🧳 荷物ガイド</a>
-      <a class="toc-link" href="#sec-keynums">🔢 キーナンバー早見表</a>
       <a class="toc-link" href="#sec-risk">⚠️ リスク対応メモ</a>
       <a class="toc-link" href="#sec-emergency">🆘 緊急・実用情報</a>
       <a class="toc-link" href="#sec-phrases">🗣 現地フレーズ（広東語）</a>
