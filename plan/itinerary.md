@@ -349,14 +349,6 @@
 
 ---
 
-## コーヒー絶品店3軒
-
-1. **% Arabica Quarry Bay**（5/12夕方・怪獸大廈隣接）
-2. **Cafe Leitz by INTERVAL**（5/14午後・Leica銅鑼灣店併設）
-3. **NOC Coffee Co.** or **Cupping Room**（5/15昼・上環/中環）
-
----
-
 ## 出典・参考
 
 - `CLAUDE.md` — フライト・宿泊基本情報
