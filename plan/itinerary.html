@@ -8,6 +8,11 @@
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<meta name="theme-color" content="#1C1C1E">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%23B5121B'/><text x='32' y='44' font-size='40' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='800'>%E9%A6%99</text></svg>">
 <style>
 :root {
   --hk-red: #B5121B;
@@ -22,40 +27,43 @@
   --stormy: #546E7A;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 100%; -webkit-text-size-adjust: 100%; }
 body {
   font-family: -apple-system, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
+  font-size: clamp(15px, 3.8vw, 16px);
 }
 
 /* COVER */
 .cover {
   background: linear-gradient(150deg, #1C1C1E 0%, #8B0D14 55%, #C9A84C 100%);
   color: white;
-  padding: 56px 32px 48px;
+  padding: clamp(20px, 5vw, 32px) clamp(20px, 5vw, 32px) clamp(20px, 5vw, 28px);
   text-align: center;
 }
-.cover-flag { font-size: 3.5rem; margin-bottom: 12px; }
-.cover-title { font-size: 2.2rem; font-weight: 800; letter-spacing: 0.08em; margin-bottom: 6px; }
-.cover-subtitle { font-size: 1rem; opacity: 0.85; letter-spacing: 0.04em; }
+.cover-flag { font-size: 2.4rem; margin-bottom: 8px; }
+.cover-title { font-size: clamp(1.5rem, 5.5vw, 2rem); font-weight: 800; letter-spacing: 0.08em; margin-bottom: 4px; }
+.cover-subtitle { font-size: 0.9rem; opacity: 0.85; letter-spacing: 0.04em; }
 .cover-chips {
-  display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 24px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 14px;
 }
 .cover-chip {
-  background: rgba(255,255,255,0.15);
-  border: 1px solid rgba(255,255,255,0.3);
-  border-radius: 20px;
-  padding: 6px 16px;
-  font-size: 0.85rem;
+  background: rgba(255,255,255,0.13);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 10px;
+  padding: 7px 12px;
+  font-size: 0.82rem;
+  text-align: left;
 }
-.cover-chip strong { display: block; font-size: 0.75rem; opacity: 0.7; margin-bottom: 1px; }
+.cover-chip strong { display: block; font-size: 0.68rem; opacity: 0.65; margin-bottom: 2px; letter-spacing: 0.04em; }
 
 /* LAYOUT */
 .container { max-width: 920px; margin: 0 auto; padding: 28px 16px; }
 .section { margin-bottom: 36px; }
 .section-title {
-  font-size: 1.1rem; font-weight: 700; color: var(--hk-red);
+  font-size: clamp(1.05rem, 3.6vw, 1.18rem); font-weight: 700; color: var(--hk-red);
   border-bottom: 2px solid var(--hk-red);
   padding-bottom: 6px; margin-bottom: 16px;
 }
@@ -115,6 +123,7 @@ body {
 details.day {
   background: var(--card); border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 10px; overflow: hidden;
+  scroll-margin-top: 50px;
 }
 details.day summary {
   cursor: pointer; padding: 14px 18px;
@@ -142,14 +151,14 @@ details.day[open] .dchev { transform: rotate(180deg); }
 .dcontent { padding: 0 18px 18px; }
 
 /* TIMELINE TABLE */
-.tbl { width: 100%; border-collapse: collapse; font-size: 0.845rem; margin-bottom: 14px; }
+.tbl { width: 100%; border-collapse: collapse; font-size: 0.875rem; margin-bottom: 14px; }
 .tbl thead tr { background: var(--dark); color: white; }
 .tbl th { padding: 7px 10px; text-align: left; font-size: 0.78rem; font-weight: 600; }
 .tbl td { padding: 7px 10px; border-bottom: 1px solid #F0EDE8; vertical-align: top; }
 .tbl tr:nth-child(even) td { background: #FAFAFA; }
 .tbl tr:last-child td { border-bottom: none; }
 .tbl td:first-child { white-space: nowrap; font-weight: 700; color: var(--hk-red); font-size: 0.78rem; width: 75px; }
-.tbl td:nth-child(3) { color: var(--muted); font-size: 0.78rem; }
+.tbl td:nth-child(3) { color: var(--muted); font-size: 0.815rem; }
 
 /* DAY NOTE BOXES */
 .note { border-radius: 8px; padding: 10px 14px; margin: 10px 0; font-size: 0.835rem; }
@@ -262,6 +271,104 @@ details.day[open] .dchev { transform: rotate(180deg); }
 .dm-marker.hkg { background: var(--dark); }
 .dm-marker.hotel { background: var(--hk-gold); }
 
+/* DAY NAV */
+.day-nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(245,240,232,0.96); backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex; gap: 6px; padding: 5px 10px;
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
+  border-bottom: 1px solid #E0DDD8;
+  scrollbar-width: none;
+}
+.day-nav::-webkit-scrollbar { display: none; }
+.day-nav a {
+  flex: 0 0 auto; padding: 4px 11px;
+  background: white; border-radius: 14px; text-decoration: none;
+  color: var(--dark); font-weight: 700; font-size: 0.8rem;
+  text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  white-space: nowrap;
+}
+.day-nav a small { display: inline; font-size: 0.7rem; color: var(--muted); font-weight: 400; margin-left: 4px; }
+.day-nav a.is-today { background: var(--hk-red); color: white; }
+.day-nav a.is-today small { color: rgba(255,255,255,0.85); }
+
+/* TODAY BADGE */
+.today-badge {
+  display: inline-block; background: var(--hk-red); color: white;
+  font-size: 0.68rem; font-weight: 700; padding: 2px 8px; border-radius: 10px;
+  margin-right: 6px; vertical-align: middle;
+}
+
+/* MOBILE TIMELINE REFLOW */
+@media (max-width: 480px) {
+  .tbl, .tbl tbody, .tbl tr, .tbl td { display: block; width: 100%; }
+  .tbl thead { display: none; }
+  .tbl tr { padding: 10px 12px; border-bottom: 1px solid #F0EDE8; }
+  .tbl tr:nth-child(even) { background: #FAFAFA; }
+  .tbl td { padding: 2px 0; border: none; background: transparent !important; }
+  .tbl td:first-child {
+    width: auto; font-size: 0.82rem; margin-bottom: 4px;
+    display: inline-block; padding: 2px 8px;
+    background: #FFF0F0 !important; border-radius: 4px;
+    color: var(--hk-red);
+  }
+  .tbl td:nth-child(2) { font-weight: 500; margin-bottom: 2px; font-size: 0.875rem; }
+  .tbl td:nth-child(3) { font-size: 0.78rem; color: var(--muted); }
+  .tbl td:nth-child(3):empty { display: none; }
+  .tbl tr:last-child td { border: none; }
+}
+
+/* COPY BLOCK */
+.gtbl-wrap { overflow-x: auto; }
+.copy-block {
+  display: flex; align-items: center; gap: 10px; padding: 10px 12px;
+  background: var(--bg); border-radius: 8px; margin-bottom: 8px; flex-wrap: wrap;
+}
+.copy-label { font-size: 0.72rem; color: var(--muted); flex-basis: 100%; }
+.copy-text {
+  flex: 1; font-size: 0.95rem; font-weight: 600; color: var(--dark);
+  min-width: 0; word-break: break-word;
+}
+.copy-btn {
+  background: var(--hk-red); color: white; border: none; border-radius: 6px;
+  padding: 6px 14px; font-size: 0.78rem; font-weight: 700; cursor: pointer; flex-shrink: 0;
+}
+.copy-btn:active { opacity: 0.8; }
+.copy-btn.copied { background: var(--sunny); }
+
+/* PHRASE CATEGORIES */
+details.phrase-cat {
+  background: var(--card); border-radius: 10px;
+  margin-bottom: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); overflow: hidden;
+}
+details.phrase-cat summary {
+  cursor: pointer; padding: 12px 16px; font-weight: 700; font-size: 0.92rem;
+  user-select: none; list-style: none; display: flex; justify-content: space-between; align-items: center;
+}
+details.phrase-cat summary::-webkit-details-marker { display: none; }
+details.phrase-cat summary::after {
+  content: '▼'; font-size: 0.7rem; color: var(--muted);
+  transition: transform 0.2s; flex-shrink: 0; margin-left: 8px;
+}
+details.phrase-cat[open] summary::after { transform: rotate(180deg); }
+details.phrase-cat .gtbl { font-size: 0.82rem; }
+details.phrase-cat .gtbl td { padding: 6px 12px; }
+details.phrase-cat .gtbl td:first-child { font-weight: 600; }
+details.phrase-cat .gtbl td:nth-child(2) { color: var(--hk-red); font-size: 0.78rem; }
+details.phrase-cat .gtbl td:nth-child(3) { color: var(--muted); font-size: 0.78rem; }
+@media (max-width: 480px) {
+  details.phrase-cat .gtbl,
+  details.phrase-cat .gtbl tbody,
+  details.phrase-cat .gtbl tr,
+  details.phrase-cat .gtbl td { display: block; }
+  details.phrase-cat .gtbl tr { padding: 8px 12px; border-bottom: 1px solid #F0EDE8; }
+  details.phrase-cat .gtbl td { padding: 1px 0; font-size: 0.82rem; }
+  details.phrase-cat .gtbl td:first-child { font-weight: 700; margin-bottom: 2px; }
+  details.phrase-cat .gtbl td:nth-child(2) { font-size: 0.78rem; }
+  details.phrase-cat .gtbl td:nth-child(3) { font-size: 0.75rem; }
+}
+
 /* PRINT */
 @media print {
   body { background: white; }
@@ -288,6 +395,14 @@ details.day[open] .dchev { transform: rotate(180deg); }
     <div class="cover-chip"><strong>レート目安</strong>1 HK$ ≈ 19〜20円</div>
   </div>
 </div>
+
+<nav class="day-nav" id="day-nav">
+  <a href="#day1" id="nav-day1">D1<small>5/12</small></a>
+  <a href="#day2" id="nav-day2">D2<small>5/13</small></a>
+  <a href="#day3" id="nav-day3">D3<small>5/14</small></a>
+  <a href="#day4" id="nav-day4">D4<small>5/15</small></a>
+  <a href="#day5" id="nav-day5">D5<small>5/16</small></a>
+</nav>
 
 <div class="container">
 
@@ -421,7 +536,7 @@ details.day[open] .dchev { transform: rotate(180deg); }
   <h2 class="section-title">📅 5日間の旅程</h2>
 
   <!-- DAY 1 -->
-  <details class="day" open>
+  <details class="day" id="day1" open>
     <summary>
       <div class="dbadge good">5/12<br>Day1</div>
       <div class="dhead">
@@ -487,7 +602,7 @@ details.day[open] .dchev { transform: rotate(180deg); }
   </details>
 
   <!-- DAY 2 -->
-  <details class="day">
+  <details class="day" id="day2">
     <summary>
       <div class="dbadge caution">5/13<br>Day2</div>
       <div class="dhead">
@@ -543,7 +658,7 @@ details.day[open] .dchev { transform: rotate(180deg); }
   </details>
 
   <!-- DAY 3 -->
-  <details class="day">
+  <details class="day" id="day3">
     <summary>
       <div class="dbadge bad">5/14<br>Day3</div>
       <div class="dhead">
@@ -584,7 +699,7 @@ details.day[open] .dchev { transform: rotate(180deg); }
   </details>
 
   <!-- DAY 4 -->
-  <details class="day">
+  <details class="day" id="day4">
     <summary>
       <div class="dbadge bad">5/15<br>Day4</div>
       <div class="dhead">
@@ -629,7 +744,7 @@ details.day[open] .dchev { transform: rotate(180deg); }
   </details>
 
   <!-- DAY 5 -->
-  <details class="day">
+  <details class="day" id="day5">
     <summary>
       <div class="dbadge bad">5/16<br>Day5</div>
       <div class="dhead">
@@ -849,6 +964,134 @@ details.day[open] .dchev { transform: rotate(180deg); }
   </div>
 </div>
 
+<!-- EMERGENCY INFO -->
+<div class="section">
+  <h2 class="section-title">🆘 緊急・実用情報</h2>
+
+  <div class="card">
+    <h3 class="card-subheading">📞 緊急連絡先</h3>
+    <div class="gtbl-wrap">
+      <table class="gtbl">
+        <tbody>
+          <tr><td>警察・救急・消防（香港・マカオ共通）</td><td><a href="tel:999" style="font-size:1.1rem;font-weight:800;color:var(--hk-red);">999</a></td></tr>
+          <tr><td>在香港日本国総領事館</td><td><a href="tel:+85225221184">+852 2522 1184</a><br><span class="li-muted">平日 9:15〜12:45 / 14:15〜17:15（緊急時は24h）</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="footnote">※ カード会社の緊急連絡先はカード裏面・アプリに記載。事前にスクショを保存しておく。</p>
+  </div>
+
+  <div class="card">
+    <h3 class="card-subheading">🏨 ホテル住所（タクシー提示用）</h3>
+    <div class="copy-block" id="copy1" data-copy="香港銅鑼灣清風街16號 TUVE Hotel">
+      <div class="copy-label">中文（タクシー運転手に見せる）</div>
+      <div class="copy-text">香港銅鑼灣清風街16號 TUVE Hotel</div>
+      <button class="copy-btn" type="button">コピー</button>
+    </div>
+    <div class="copy-block" id="copy2" data-copy="TUVE Hotel, 16 Tsing Fung Street, Tin Hau, Hong Kong">
+      <div class="copy-label">English</div>
+      <div class="copy-text">TUVE Hotel, 16 Tsing Fung Street, Tin Hau, Hong Kong</div>
+      <button class="copy-btn" type="button">コピー</button>
+    </div>
+    <p class="footnote">最寄: MTR天后駅 A1出口 徒歩3分 ／ タクシーに乗る時はこの画面を見せると確実</p>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h3 class="card-subheading">⚡ 電源・通信</h3>
+      <ul class="body-list">
+        <li>コンセント: <strong>BFタイプ</strong>（イギリス式・3ピン角型）</li>
+        <li>電圧: <strong>220V / 50Hz</strong>（変換プラグ必要、変圧器不要）</li>
+        <li>飲水: 水道水は飲用非推奨 → コンビニでボトル水購入</li>
+        <li>SIM: 現地SIM or Airalo eSIM が使いやすい（香港・マカオ両対応を選ぶ）</li>
+        <li>無料Wi-Fi: MTR駅・スタバ・マクドナルドなど広く展開</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3 class="card-subheading">💊 薬局・医療</h3>
+      <ul class="body-list">
+        <li><strong>Watsons（屈臣氏）</strong> / <strong>Mannings（萬寧）</strong> ― 薬局チェーン・各所に多数</li>
+        <li>Times Square B2階に24h対応店舗あり</li>
+        <li>軽い体調不良 → 私立クリニック（要現金）が市内各所に</li>
+        <li>常備薬の成分名（英語）をメモアプリに入れておくと薬剤師に伝わる</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="card-subheading">🌧 天気警報・緊急運用</h3>
+    <ul class="body-list">
+      <li><strong>黒色暴雨警告（Black Rainstorm）</strong> ― 屋外移動は即中止。地下街・ショッピングモールに避難</li>
+      <li><strong>T8シグナル以上（台風）</strong> ― 公共交通停止・店舗閉鎖。ホテルで待機</li>
+      <li>確認方法: <strong>MyObservatory</strong>（HKO公式アプリ）または <code>www.hko.gov.hk</code></li>
+      <li>5/13〜16は雨予報。毎朝確認しておく</li>
+    </ul>
+  </div>
+</div>
+
+<!-- PHRASES -->
+<div class="section">
+  <h2 class="section-title">🗣 現地フレーズ（広東語）</h2>
+  <p class="footnote" style="margin-bottom:12px;">広東語は標準中国語と発音が大きく異なる。カタカナは参考値 ― 通じない時は<strong>英語 / スマホで漢字を見せる</strong>に切替。</p>
+
+  <details class="phrase-cat" open>
+    <summary>🍽 食事・店内</summary>
+    <table class="gtbl">
+      <tbody>
+        <tr><td><strong>多謝 / 唔該</strong></td><td>ターチェ / ンゴーイ</td><td>ありがとう / すみません</td></tr>
+        <tr><td>埋單</td><td>マイダーン</td><td>お会計</td></tr>
+        <tr><td>呢個</td><td>ニーゴ</td><td>これください（指差し用）</td></tr>
+        <tr><td>凍 / 熱</td><td>ドゥン / イッ</td><td>冷たい / 熱い（飲み物）</td></tr>
+        <tr><td>唔要辣</td><td>ンイウ ラッ</td><td>辛いの抜きで</td></tr>
+        <tr><td>有冇英文menu？</td><td>ヤウモウ イェンマン メニュー</td><td>英語メニューは？</td></tr>
+        <tr><td>凍水 / 熱水</td><td>ドゥン ソイ / イッ ソイ</td><td>冷水 / お湯</td></tr>
+      </tbody>
+    </table>
+  </details>
+
+  <details class="phrase-cat">
+    <summary>🚕 タクシー・移動</summary>
+    <table class="gtbl">
+      <tbody>
+        <tr><td>請去⋯⋯</td><td>チェンホイ ⋯⋯</td><td>⋯⋯へ行ってください</td></tr>
+        <tr><td>請去天后地鐵站</td><td>チェンホイ ティンハウ ディーティッジャム</td><td>MTR天后駅へ</td></tr>
+        <tr><td>請去香港國際機場</td><td>チェンホイ ヘンゴン グォッジャイ ゲイチョン</td><td>香港国際空港へ</td></tr>
+        <tr><td>停車</td><td>ティンチェー</td><td>止めてください</td></tr>
+        <tr><td>俾收據</td><td>ベイ サウゴイ</td><td>領収書をください</td></tr>
+        <tr><td>幾錢？</td><td>ゲイ チン</td><td>いくらですか？</td></tr>
+      </tbody>
+    </table>
+  </details>
+
+  <details class="phrase-cat">
+    <summary>🆘 緊急・体調</summary>
+    <table class="gtbl">
+      <tbody>
+        <tr><td>救命！</td><td>ガウ メン！</td><td>助けて！</td></tr>
+        <tr><td>我唔舒服</td><td>ンゴー ン シュフッ</td><td>体調が悪い</td></tr>
+        <tr><td>叫救護車</td><td>ギウ ガウウー チェー</td><td>救急車を呼んで</td></tr>
+        <tr><td>警察</td><td>ゲン チャッ</td><td>警察</td></tr>
+        <tr><td>我唔識廣東話</td><td>ンゴー ン シッ グゥンドン ワー</td><td>広東語を話せません</td></tr>
+        <tr><td>請講英文</td><td>チェンゴーン イェンマン</td><td>英語でお願いします</td></tr>
+      </tbody>
+    </table>
+  </details>
+
+  <details class="phrase-cat">
+    <summary>🛍 数字・買い物</summary>
+    <table class="gtbl">
+      <tbody>
+        <tr><td>一 / 二 / 三 / 四 / 五</td><td>ヤッ / イー / サーム / セイ / ンー</td><td>1〜5</td></tr>
+        <tr><td>六 / 七 / 八 / 九 / 十</td><td>ロッ / チャッ / バッ / ガウ / サップ</td><td>6〜10</td></tr>
+        <tr><td>太貴</td><td>タァイ ガィ</td><td>高すぎる</td></tr>
+        <tr><td>平啲得唔得？</td><td>ペン ディー ダッ ン ダッ</td><td>もう少し安くなりますか？</td></tr>
+        <tr><td>我要呢個</td><td>ンゴー イウ ニーゴ</td><td>これをください</td></tr>
+      </tbody>
+    </table>
+  </details>
+</div>
+
 <!-- COMMON ITEMS -->
 <div class="section">
   <h2 class="section-title">🎒 全日程 共通の持ち物</h2>
@@ -984,6 +1227,78 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('beforeprint', function () {
     document.querySelectorAll('details').forEach(d => { d.open = true; });
   });
+
+  // ─── 今日の日付に応じて該当日を自動展開 ─────────────────────────────────
+  (function autoOpenToday() {
+    const t = new Date();
+    const key = t.getFullYear() + '-' + (t.getMonth() + 1) + '-' + t.getDate();
+    const tripDays = { '2026-5-12':1, '2026-5-13':2, '2026-5-14':3, '2026-5-15':4, '2026-5-16':5 };
+    const dayNum = tripDays[key];
+    if (!dayNum) return;
+
+    document.querySelectorAll('details.day').forEach((d, idx) => {
+      d.open = (idx + 1 === dayNum);
+      if (idx + 1 === dayNum) {
+        const dhead = d.querySelector('.dhead');
+        if (dhead && !dhead.querySelector('.today-badge')) {
+          const badge = document.createElement('span');
+          badge.className = 'today-badge';
+          badge.textContent = '今日';
+          dhead.insertBefore(badge, dhead.firstChild);
+        }
+        setTimeout(() => d.scrollIntoView({ behavior: 'smooth', block: 'start' }), 250);
+      }
+    });
+
+    const navLink = document.getElementById('nav-day' + dayNum);
+    if (navLink) navLink.classList.add('is-today');
+  })();
+
+  // ─── コピーボタン ─────────────────────────────────────────────────────────
+  document.querySelectorAll('.copy-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      const block = btn.closest('[data-copy]');
+      if (!block) return;
+      const text = block.dataset.copy;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () {
+          btn.textContent = '✓ コピー済';
+          btn.classList.add('copied');
+          setTimeout(function () { btn.textContent = 'コピー'; btn.classList.remove('copied'); }, 1600);
+        }).catch(function () { fallbackCopy(btn, text); });
+      } else {
+        fallbackCopy(btn, text);
+      }
+    });
+  });
+
+  // ─── day-nav クリック時に対象 accordion を開く ──────────────────────────
+  document.querySelectorAll('.day-nav a').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = link.getAttribute('href').slice(1);
+      const target = document.getElementById(targetId);
+      if (!target) return;
+      if (!target.open) target.open = true;
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.replaceState(null, '', '#' + targetId);
+    });
+  });
+
+  function fallbackCopy(btn, text) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try {
+      document.execCommand('copy');
+      btn.textContent = '✓ コピー済';
+      btn.classList.add('copied');
+      setTimeout(function () { btn.textContent = 'コピー'; btn.classList.remove('copied'); }, 1600);
+    } catch (e) { btn.textContent = '選択してコピー'; }
+    document.body.removeChild(ta);
+  }
 });
 </script>
 </body>
